@@ -1,0 +1,44 @@
+<section class="skills-section">
+    <h2>Soft Skills</h2>
+    <ul class="soft-skills-list">
+      <li *ngFor="let skill of softSkills">{{ skill }}</li>
+    </ul>
+  </section>
+  
+<section class="skills-section">
+    <h2>Hard Skills</h2>
+
+    <!-- Front-End Skills -->
+    <div class="skills-category">
+        <h3>Front-End</h3>
+        <div class="hard-skills-grid">
+        <div class="skill-item" *ngFor="let skill of frontEndSkills">
+            <img [src]="skill.image" [alt]="skill.name" />
+            <span>{{ skill.name }}</span>
+        </div>
+        </div>
+    </div>
+
+    <!-- Back-End Skills -->
+    <div class="skills-category">
+        <h3>Back-End</h3>
+        <div class="hard-skills-grid">
+        <div class="skill-item" *ngFor="let skill of backEndSkills">
+            <img [src]="skill.image" [alt]="skill.name" />
+            <span>{{ skill.name }}</span>
+        </div>
+        </div>
+    </div>
+
+    <!-- Tools & Technologies -->
+    <div class="skills-category">
+        <h3>Tools & Technologies</h3>
+        <div class="hard-skills-grid">
+        <div class="skill-item" *ngFor="let skill of toolsSkills">
+            <img [src]="skill.image" [alt]="skill.name" />
+            <span>{{ skill.name }}</span>
+        </div>
+        </div>
+    </div>
+</section>
+  

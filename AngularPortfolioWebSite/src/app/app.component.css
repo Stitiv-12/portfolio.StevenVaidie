@@ -1,0 +1,42 @@
+/* Style de la barre de navigation */
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 15px 0;
+    background: #333;
+    margin: 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style des éléments de la liste */
+  nav li {
+    margin: 0 15px;
+    position: relative;
+  }
+  
+  /* Style des liens */
+  nav li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease;
+    cursor: pointer; /* Change le curseur en forme de main */
+  }
+  
+  /* Effet au survol des liens */
+  nav li a:hover {
+    color: #f39c12;
+    transform: scale(1.1);
+  }
+  
+  /* Indicateur de la page active */
+  nav li a.active {
+    color: #e74c3c;
+    font-weight: bold;
+    border-bottom: 2px solid #e74c3c;
+    padding-bottom: 2px;
+  }
+  

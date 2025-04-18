@@ -1,0 +1,36 @@
+<div class="hero-section">
+    <img [src]="profileImage" alt="Photo de profil" class="profile-image" />
+    <div class="hero-text">
+      <h1>Bonjour, je suis <span class="highlight">{{ name }}</span></h1>
+      <p class="subtitle">{{ subtitle }}</p>
+      <p class="description">{{ description }}</p>
+    </div>
+</div>
+<div class="contact-section">
+    <h2>Projets</h2>
+    <ul class="projects-list">
+      <li *ngFor="let project of projects">
+        <a [href]="project.url" target="_blank">{{ project.name }} : {{project.description}}</a>
+      </li>
+    </ul>
+</div>
+
+<div class="container-contact-section">
+    <div class="contact-section">
+        <h2>Réseaux Sociaux</h2>
+        <ul class="social-media-list">
+          <li *ngFor="let link of socialMediaLinks">
+            <a [href]="link.url" target="_blank">{{ link.name }}</a>
+          </li>
+        </ul>
+    </div>
+    <div class="contact-section">
+        <h2>Contact</h2>
+        <p>Email: {{ email }}</p>
+        <p>Téléphone: {{ phone }}</p>
+    </div>
+</div>
+
+  
+  
+  
