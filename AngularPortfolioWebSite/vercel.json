@@ -5,7 +5,7 @@
         "src": "package.json",
         "use": "@vercel/static-build",
         "config": {
-          "distDir": "dist/angular-portfolio-web-site"
+          "distDir": "dist/angular-portfolio-web-site/browser"
         }
       }
     ],
