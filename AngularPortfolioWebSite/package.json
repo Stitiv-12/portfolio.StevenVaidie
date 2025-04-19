@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "preview": "ng build --configuration production && npx http-server dist/angular-portfolio-web-site/browser -p 4200 -s",
     "serve:ssr:AngularPortfolioWebSite": "node dist/angular-portfolio-web-site/server/server.mjs"
   },
   "private": true,

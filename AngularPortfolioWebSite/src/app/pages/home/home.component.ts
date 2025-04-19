@@ -9,7 +9,7 @@ import { NgFor } from '@angular/common';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  profileImage = 'public/img/profile/moi.jpg';
+  profileImage = 'assets/images/profile/moi.jpg';
   name = 'Steven Vaidie';
   subtitle = 'Développeur Web Front-End passionné';
   description = 'Je conçois des interfaces modernes, accessibles et performantes. Mon objectif est de transformer des idées en expériences numériques fluides.';
