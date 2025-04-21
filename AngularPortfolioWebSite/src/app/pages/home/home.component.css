@@ -4,6 +4,7 @@
     justify-content: center;
     padding: 60px 20px;
     gap: 40px;
+    border-radius: 2%;
     flex-wrap: wrap;
     background-color: #f5f5f5;
   }
@@ -50,7 +51,7 @@
     padding: 10px 10px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 50pc;
+    max-width: 70pc;
     margin: 30px auto;
     text-align: center;
 }
@@ -67,6 +68,14 @@
     color: #555;
     margin: 10px 0;
 }
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* valeur par défaut pour les grands écrans */
+  padding-left: 0;
+  list-style: none;
+}
+
 
 .contact-section p.email, .contact-section p.phone {
     font-size: 1.1rem;
@@ -85,6 +94,11 @@
     text-decoration: underline;
 }
 
-
+@media (max-width: 768px) {
+  .container-contact-section{
+      display: flex;
+      flex-direction: column;
+  }
+}
   
  

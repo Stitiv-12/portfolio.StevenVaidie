@@ -10,8 +10,10 @@
     <h2>Projets</h2>
     <ul class="projects-list">
       <li *ngFor="let project of projects">
-        <a [href]="project.url" target="_blank">{{ project.name }} : {{project.description}}</a>
-      </li>
+        <a [routerLink]="['/projects']" [fragment]="project.fragment">
+          {{ project.name }} : {{ project.description }}
+        </a>
+      </li>      
     </ul>
 </div>
 

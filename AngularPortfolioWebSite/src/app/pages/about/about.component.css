@@ -1,26 +1,23 @@
 /* Réinitialisation de base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
-    padding: 20px;
-  }
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.about-me-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
   
   /* Conteneur principal */
   .about-me-section {
     max-width: 80%;
-    margin-top: 40px;
     background: #fff;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 4px 4px 6px rgba(0, 0, 0, 0.1);
   }
   
   /* Présentation */
@@ -28,6 +25,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
     margin-bottom: 30px;
   }
   
@@ -45,26 +43,25 @@
   }
   
   .about-me-text .highlight {
-    color: #007acc;
+    color: #f39c12;
   }
   
   /* Sections */
   section {
-    margin-bottom: 40px;
+    margin-bottom: 1%;
   }
   
   section h3 {
     font-size: 1.5em;
     margin-bottom: 15px;
-    color: #007acc;
-    border-bottom: 2px solid #007acc;
+    color: #f39c12;
+    border-bottom: 2px solid #f39c12;
     display: inline-block;
     padding-bottom: 5px;
   }
   
   section ul {
-    list-style-type: disc;
-    margin-left: 20px;
+    list-style: none;
   }
   
   section p {

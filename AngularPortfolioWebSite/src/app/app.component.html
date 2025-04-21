@@ -1,10 +1,12 @@
-<nav>
+<nav class="navbar">
   <ul>
     <li><a routerLink="/">Accueil</a></li>
-    <li><a routerLink="/about">About Me</a></li>
+    <li><a routerLink="/about">À propos de moi</a></li>
     <li><a routerLink="/projects">Projets</a></li>
-    <li><a routerLink="/competence">competence</a></li>
+    <li><a routerLink="/competence">Competences</a></li>
   </ul>
 </nav>
 
-<router-outlet></router-outlet>
+<div class="page-content">
+  <router-outlet></router-outlet>
+</div>

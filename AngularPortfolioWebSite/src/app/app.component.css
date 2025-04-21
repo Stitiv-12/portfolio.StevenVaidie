@@ -1,42 +1,63 @@
-/* Style de la barre de navigation */
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    padding: 15px 0;
-    background: #333;
-    margin: 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  background: rgba(51, 51, 51, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
+  z-index: 1000;
+}
+
+/* LIENS */
+.navbar ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 30px;
+}
+
+.navbar li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar li a:hover {
+  color: #f39c12;
+  transform: scale(1.1);
+}
+
+/* CONTENU PRINCIPAL */
+.page-content {
+  padding-top: 100px; /* adapte selon la hauteur totale de ta navbar */
+  width: 100%;
+  max-width: 1200px;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar {
+    width: 90%; /* plus large sur mobile */
+    padding: 10px 15px;
   }
-  
-  /* Style des éléments de la liste */
-  nav li {
-    margin: 0 15px;
-    position: relative;
+
+  .navbar ul {
+    gap: 16px; /* réduit l’écart entre les éléments si besoin */
+    flex-wrap: nowrap; /* s’assurer que tout reste sur une ligne */
   }
-  
-  /* Style des liens */
-  nav li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    transition: color 0.3s ease, transform 0.3s ease;
-    cursor: pointer; /* Change le curseur en forme de main */
+
+  .navbar li a {
+    font-size: 14px; /* tu peux aussi légèrement réduire la taille */
+    white-space: nowrap; /* évite les retours à la ligne */
   }
-  
-  /* Effet au survol des liens */
-  nav li a:hover {
-    color: #f39c12;
-    transform: scale(1.1);
-  }
-  
-  /* Indicateur de la page active */
-  nav li a.active {
-    color: #e74c3c;
-    font-weight: bold;
-    border-bottom: 2px solid #e74c3c;
-    padding-bottom: 2px;
-  }
-  
+}

@@ -1,114 +1,18 @@
 <section class="projects-section">
-    <h2>Mes Projets</h2>
-  
-    <div class="project-item">
-      <h3>Sanatio App-Mobile</h3>
-      <p><strong>Objectif:</strong> Création d'une application mobile pour aider les patients à gérer leurs traitements médicaux.</p>
-      <p><strong>Réalisation:</strong> Ce projet est en cours avec 6 autres personnes, en utilisant React-Native pour le front-end et Express pour les API.</p>
-      <p class="description">L'application permet aux utilisateurs de gérer leurs prescriptions, suivre leur calendrier de médicaments et consulter les stocks disponibles.</p>
-      <div class="functions">
-        <h4>Fonctions :</h4>
-        <ul>
-          <li>Ajout de prescriptions manuelles ou via un scan d'ordonnance</li>
-          <li>Calendrier avec rappel des médicaments à prendre</li>
-          <li>Indication des fins de validité des ordonnances et gestion du stock de médicaments</li>
-        </ul>
-      </div>
-      <div class="cta">
-        <a href="https://github.com/Stitiv-12/Sanatio-App" target="_blank">Accéder au code sur Github</a>
-      </div>
+  <h2>Mes Projets</h2>
+  <div class="project-item " *ngFor="let project of projects" [id]="project.fragment">
+    <h3>{{ project.title }}</h3>
+    <p><strong>Objectif:</strong> {{ project.objective }}</p>
+    <p><strong>Réalisation:</strong> {{ project.realisation }}</p>
+    <p class="description">{{ project.description }}</p>
+    <div class="functions">
+      <h4>Fonctions :</h4>
+      <ul>
+        <li *ngFor="let func of project.functions">{{ func }}</li>
+      </ul>
     </div>
-  
-    <div class="project-item">
-      <h3>Site e-commerce de parfum</h3>
-      <p><strong>Objectif:</strong> Mettre en œuvre les compétences en Laravel et PHP sur un projet concret de site e-commerce.</p>
-      <p><strong>Réalisation:</strong> Projet réalisé avec 3 autres personnes. Il s'agit d'un site complet avec gestion des produits, paiement et profils utilisateurs.</p>
-      <p class="description">Les utilisateurs peuvent acheter des parfums, gérer leur panier, et passer commande via un processus de paiement sécurisé.</p>
-      <div class="functions">
-        <h4>Fonctions :</h4>
-        <ul>
-          <li>Affichage des parfums disponibles</li>
-          <li>Recherche et tri des parfums</li>
-          <li>Création de panier et gestion des commandes</li>
-          <li>Historique des achats et gestion des profils utilisateurs</li>
-        </ul>
-      </div>
-      <div class="cta">
-        <a href="https://github.com/Stitiv-12/ecommerce-parfum" target="_blank">Accéder au code sur Github</a>
-      </div>
+    <div class="cta">
+      <a [href]="project.githubUrl" target="_blank">Accéder au code sur Github</a>
     </div>
-  
-    <div class="project-item">
-      <h3>Stage 2ème année en entreprise</h3>
-      <p><strong>Objectif:</strong> Développer un convertisseur de format de données et une interface web pour l'entrée des données.</p>
-      <p><strong>Réalisation:</strong> Utilisation de C# pour le convertisseur et React pour l'interface web, avec gestion des données dans le format AML et stockage sur Google Drive.</p>
-      <p class="description">Ce projet m'a permis de comprendre l'intégration de différentes technologies pour la gestion de données structurées et leur transfert via une API.</p>
-      <div class="functions">
-        <h4>Fonctions :</h4>
-        <ul>
-          <li>Convertisseur de données entre différents formats</li>
-          <li>Interface web pour l'entrée des données</li>
-          <li>Stockage et gestion des fichiers AML sur Google Drive</li>
-        </ul>
-      </div>
-      <div class="cta">
-        <a href="https://github.com/Stitiv-12/aml-converter" target="_blank">Accéder au code sur Github</a>
-      </div>
-    </div>
-  
-    <div class="project-item">
-      <h3>Générateur de Particules</h3>
-      <p><strong>Objectif:</strong> Apprendre Go en créant un générateur de particules interactif à partir d'images.</p>
-      <p><strong>Réalisation:</strong> Création d'un logiciel permettant de générer des particules et de les manipuler à l'aide de la souris.</p>
-      <p class="description">Ce projet a exploré les bases de la programmation en Go tout en appliquant des concepts d'animations et de gestion de particules.</p>
-      <div class="functions">
-        <h4>Fonctions :</h4>
-        <ul>
-          <li>Génération de particules à partir d'un pixel</li>
-          <li>Modification de la couleur et taille des particules</li>
-          <li>Déplacement et création de particules en fonction du clic ou du mouvement de la souris</li>
-          <li>Simulation de gravité et collisions entre particules</li>
-        </ul>
-      </div>
-      <div class="cta">
-        <a href="https://github.com/Stitiv-12/particle-generator" target="_blank">Accéder au code sur Github</a>
-      </div>
-    </div>
-  
-    <div class="project-item">
-      <h3>Puissance 4</h3>
-      <p><strong>Objectif:</strong> Réaliser un jeu Puissance 4 avec gestion de serveur pour l'interaction entre joueurs.</p>
-      <p><strong>Réalisation:</strong> Développement du jeu en Go, avec gestion des Goroutines pour la communication entre les joueurs via un serveur.</p>
-      <p class="description">Ce projet a permis de découvrir la gestion des connexions et de la communication en temps réel entre deux utilisateurs.</p>
-      <div class="functions">
-        <h4>Fonctions :</h4>
-        <ul>
-          <li>Jeu Puissance 4 multijoueur en ligne</li>
-          <li>Gestion des interactions entre deux joueurs via un serveur</li>
-          <li>Utilisation de Goroutines pour gérer la communication asynchrone</li>
-        </ul>
-      </div>
-      <div class="cta">
-        <a href="https://github.com/Stitiv-12/puissance4" target="_blank">Accéder au code sur Github</a>
-      </div>
-    </div>
-  
-    <div class="project-item">
-      <h3>Pickomino</h3>
-      <p><strong>Objectif:</strong> Réaliser le jeu de société Pickomino en version numérique.</p>
-      <p><strong>Réalisation:</strong> Projet en équipe de 4 personnes, développement avec Kotlin et JavaFX pour la partie graphique et logique du jeu.</p>
-      <p class="description">Une adaptation numérique du jeu de société où les règles ont été reproduites fidèlement pour offrir une expérience de jeu fluide.</p>
-      <div class="functions">
-        <h4>Fonctions :</h4>
-        <ul>
-          <li>Interface graphique avec JavaFX</li>
-          <li>Gestion des règles du jeu de société Pickomino</li>
-          <li>Multijoueur et interactions entre joueurs</li>
-        </ul>
-      </div>
-      <div class="cta">
-        <a href="https://github.com/Stitiv-12/pickomino" target="_blank">Accéder au code sur Github</a>
-      </div>
-    </div>
-  </section>
-  
+  </div>  
+</section>
