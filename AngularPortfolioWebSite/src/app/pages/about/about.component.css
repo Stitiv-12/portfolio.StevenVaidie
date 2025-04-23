@@ -9,6 +9,16 @@
   justify-content: center;
   width: 100%;
 }
+.about-me-details{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5%;
+  
+}
+.about-me-details section {
+  display: flex;
+  flex-direction: column;
+}
 
   
   /* Conteneur principal */
@@ -46,11 +56,6 @@
     color: #f39c12;
   }
   
-  /* Sections */
-  section {
-    margin-bottom: 1%;
-  }
-  
   section h3 {
     font-size: 1.5em;
     margin-bottom: 15px;
@@ -62,10 +67,11 @@
   
   section ul {
     list-style: none;
+    
   }
   
   section p {
-    margin-bottom: 10px;
+    font-size:larger;
   }
   
   /* Logos de football */
@@ -95,6 +101,11 @@
   
     .football-logos {
       justify-content: center;
+    }
+    .about-me-details{
+      display: flex;
+      flex-direction: column;
+      
     }
   }
   

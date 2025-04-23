@@ -3,16 +3,21 @@
   <div class="project-item " *ngFor="let project of projects" [id]="project.fragment">
     <h3>{{ project.title }}</h3>
     <p><strong>Objectif:</strong> {{ project.objective }}</p>
-    <p><strong>Réalisation:</strong> {{ project.realisation }}</p>
+    <p *ngIf="project.realisation && project.realisation != null"><strong>Réalisation:</strong> {{ project.realisation }}</p>
     <p class="description">{{ project.description }}</p>
-    <div class="functions">
+    <div class="functions" *ngIf="project.functions && project.functions.length > 0">
       <h4>Fonctions :</h4>
       <ul>
         <li *ngFor="let func of project.functions">{{ func }}</li>
       </ul>
     </div>
     <div class="cta">
-      <a [href]="project.githubUrl" target="_blank">Accéder au code sur Github</a>
+      <a *ngIf="project.githubUrl; else noCode" [href]="project.githubUrl" target="_blank">
+        Accéder au code sur Github
+      </a>
+      <ng-template #noCode>
+        <span class="no-code-message">Code non disponible</span>
+      </ng-template>
     </div>
   </div>  
 </section>

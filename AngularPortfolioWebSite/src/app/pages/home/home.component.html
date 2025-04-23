@@ -6,7 +6,18 @@
       <p class="description">{{ description }}</p>
     </div>
 </div>
-<div class="contact-section">
+
+
+<div class="container-contact-section">
+  <div class="contact-section">
+    <h2>Réseaux Sociaux</h2>
+    <ul class="social-media-list">
+      <li *ngFor="let link of socialMediaLinks">
+        <a [href]="link.url" target="_blank">{{ link.name }}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="contact-section">
     <h2>Projets</h2>
     <ul class="projects-list">
       <li *ngFor="let project of projects">
@@ -15,22 +26,15 @@
         </a>
       </li>      
     </ul>
-</div>
-
-<div class="container-contact-section">
-    <div class="contact-section">
-        <h2>Réseaux Sociaux</h2>
-        <ul class="social-media-list">
-          <li *ngFor="let link of socialMediaLinks">
-            <a [href]="link.url" target="_blank">{{ link.name }}</a>
-          </li>
-        </ul>
-    </div>
-    <div class="contact-section">
-        <h2>Contact</h2>
-        <p>Email: {{ email }}</p>
-        <p>Téléphone: {{ phone }}</p>
-    </div>
+  </div>
+  
+  <div class="contact-section">
+      <h2>Contact</h2>
+      <h3>Email</h3>
+      <p>{{ email }}</p>
+      <h3>Téléphone</h3>
+      <p>{{ phone }}</p>
+  </div>
 </div>
 
   

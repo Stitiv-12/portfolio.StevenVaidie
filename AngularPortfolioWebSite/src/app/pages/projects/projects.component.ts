@@ -1,25 +1,33 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NgFor, ViewportScroller } from '@angular/common';
+import { NgFor, ViewportScroller , NgIf } from '@angular/common';
 
 interface Project {
   title: string;
   objective: string;
-  realisation: string;
+  realisation?: string;
   description: string;
-  functions: string[];
-  githubUrl: string;
+  functions?: string[];
+  githubUrl?: string;
   fragment: string;
 }
 
 @Component({
   selector: 'app-projects',
-  imports: [NgFor],
+  imports: [NgFor,NgIf],
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
   projects: Project[] = [
+    {
+      title: 'Portfolio',
+      fragment: 'portfolio',
+      objective: "Créer un site web personnel pour présenter mes projets et mes compétences.",
+      realisation: "J'ai réalisé ce projet seul, en utilisant Angular pour le front-end.",
+      description: "Le site présente mes projets, mes compétences et mon parcours professionnel et personnel. Il est conçu pour être responsive et facile à naviguer.",
+      githubUrl: 'https://github.com/Stitiv-12/portfolio.StevenVaidie',
+    },
     {
       title: 'Sanatio App-Mobile',
       fragment: 'sanatio-app-mobile',
@@ -74,6 +82,17 @@ export class ProjectsComponent implements OnInit {
       githubUrl: 'https://github.com/Stitiv-12/Pickomino'
     },
     {
+      title: 'ClashRoyal',
+      fragment: 'clashroyal',
+      objective: 'Développer un site internet pour présenter un deck de cartes de Clash Royale qui me représente.',
+      description: 'Ce projet était dans le cadre d\'un projet scolaire, il a été réalisé en HTML/CSS.',
+      functions: [
+        'concevoir son propre deck de cartes pour se présenter',
+        'Consulter celui des autres participants'
+      ],
+      githubUrl: 'https://github.com/Stitiv-12/ClashRoyal'
+    },
+    {
       title: 'Site e-commerce de parfum',
       fragment: 'site-e-commerce-de-parfum',
       objective: 'Mettre en œuvre mes compétences en Laravel et PHP sur un projet concret de site e-commerce.',
@@ -84,8 +103,7 @@ export class ProjectsComponent implements OnInit {
         'Recherche et tri des parfums',
         'Création de panier et gestion des commandes',
         'Historique des achats et gestion des profils utilisateurs'
-      ],
-      githubUrl: 'https://github.com/Stitiv-12/ecommerce-parfum',
+      ]
     },
     {
       title: 'Stage 2ème année en entreprise',
@@ -97,8 +115,7 @@ export class ProjectsComponent implements OnInit {
         'Convertisseur de données entre différents formats',
         'Interface web pour l\'entrée des données',
         'Stockage et gestion des fichiers AML sur Google Drive'
-      ],
-      githubUrl: 'https://github.com/Stitiv-12/aml-converter'
+      ]
     }
   ];
   constructor(
@@ -111,18 +128,30 @@ export class ProjectsComponent implements OnInit {
   ngOnInit(): void {
     this.route.fragment.subscribe((fragment: string | null) => {
       if (fragment) {
-        // Petite pause pour laisser le DOM se mettre à jour
         setTimeout(() => {
           const element = document.getElementById(fragment);
           if (element) {
-            element.scrollIntoView({
-              behavior: 'smooth',
-              block: 'center' // ← C’est ici que la magie opère
-            });
+            const isMobile = window.innerWidth <= 768; // seuil que tu peux ajuster
+            if (isMobile) {
+              const yOffset = -70; // décalage que tu veux
+              const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+              window.scrollTo({
+                top: y,
+                behavior: 'smooth'
+              });
+            }else{
+              element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+              });
+            }
+            
           }
         }, 0);
       }
     });
   }
+  
   
 }

@@ -19,9 +19,16 @@ export class HomeComponent {
   phone = '06 51 55 91 11';
   socialMediaLinks= [
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/steven-vaidie-ab1234267/' },
-    { name: 'GitHub', url: 'https://github.com/Stitiv-12'}
+    { name: 'GitHub', url: 'https://github.com/Stitiv-12'},
+    { name: 'CV', url: 'assets/documents/cv.pdf' },
+    { name: 'Lettre de motivation', url: 'assets/documents/lettremotivation.pdf' }
   ]
   projects = [
+    {
+      name: 'Portfolio',
+      description: 'Site web personnel pour présenter mes projets et compétences.',
+      fragment: 'portfolio'
+    },
     {
       name: 'Sanatio App-Mobile',
       description: 'Application mobile pour la gestion des traitements médicaux.',
@@ -51,6 +58,11 @@ export class HomeComponent {
       name: 'Pickomino',
       description: 'Adaptation numérique du jeu de société Pickomino en JavaFX.',
       fragment: 'pickomino'
+    },
+    {
+      name: 'ClashRoyal',
+      description: 'Présentation sous forme de deck clash royal.',
+      fragment: 'clashroyal'
     }
   ];
   

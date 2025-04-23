@@ -23,7 +23,7 @@ export class CompetenceComponent {
     { name: 'HTML/CSS', image: 'assets/images/competence/htmlcss.png' },
     { name: 'JavaScript', image: 'assets/images/competence/JavaScript.png' },
     { name: 'TypeScript', image: 'assets/images/competence/TypeScript.png' },
-    { name: 'Bootstrap', image: 'assets/images/competence/bootstrap.png' },
+    { name: 'Bootstrap', image: 'assets/images/competence/Bootstrap.png' },
   ];
 
   backEndSkills = [

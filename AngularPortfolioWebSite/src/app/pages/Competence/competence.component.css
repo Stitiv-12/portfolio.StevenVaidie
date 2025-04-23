@@ -1,4 +1,5 @@
 
+
 .soft-skills-list {
     list-style: none;
     padding: 0;
@@ -9,7 +10,6 @@
   }
   
   .soft-skills-list li {
-    background-color: #f0f0f0;
     padding: 10px 20px;
     border-radius: 25px;
     color: #f39c12;
@@ -59,10 +59,11 @@
 .skills-category {
     margin-bottom: 30px;
     background-color: #fff;
-    padding: 10px;
-    border-radius: 2%;
+    padding: 10px 10px 30px 10px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
+    box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.1);
 }
 
 .skills-category h3 {
@@ -82,7 +83,7 @@
     align-items: center;
     justify-content: center;
     padding: 10px;
-    background-color: #fff;
+    background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.1);
     text-align: center;

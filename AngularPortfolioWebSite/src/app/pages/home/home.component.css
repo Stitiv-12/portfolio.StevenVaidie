@@ -45,6 +45,8 @@
   }
 .container-contact-section{
     display: flex;
+    justify-content: space-around;
+    gap: 2%;
 }
 .contact-section {
     background-color: #f5f5f5;
@@ -68,13 +70,15 @@
     color: #555;
     margin: 10px 0;
 }
-.projects-list {
+.projects-list,.social-media-list {
   display: flex;
   flex-direction: column;
+  justify-content: start;
   gap: 20px; /* valeur par défaut pour les grands écrans */
   padding-left: 0;
   list-style: none;
 }
+
 
 
 .contact-section p.email, .contact-section p.phone {
