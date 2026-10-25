@@ -1,67 +1,132 @@
-<div class="about-me-wrapper">
-  <section class="about-me-section">
-    <div class="about-me-container">
-      <div class="about-me-photo">
-        <img src="assets/images/profile/moi.jpg" alt="Photo de Steven Vaidie" />
+<div class="wrap">
+  <header class="page-heading">
+    <p class="eyebrow">
+      <span class="section-number">02 /</span>LE PARCOURS, PAS SEULEMENT LE CV
+    </p>
+    <h1>
+      Curieux de nature. <br /><span class="orange"
+        >Développeur par envie.</span
+      >
+    </h1>
+  </header>
+  <section class="about-intro section">
+    <div class="about-photo">
+      <img
+        src="assets/images/profile/moi.jpg"
+        alt="Portrait de Steven Vaidie"
+        width="661"
+        height="882"
+      /><span>VENDÉE, FRANCE <br />↗ TOUJOURS EN APPRENTISSAGE</span>
+    </div>
+    <div>
+      <p class="eyebrow">BONJOUR, MOI C’EST STEVEN.</p>
+      <h2>Comprendre comment. <br />Construire pourquoi.</h2>
+      <p>
+        Ce portfolio a commencé comme un défi : découvrir Angular et montrer que
+        je pouvais apprendre une technologie en construisant avec elle.
+      </p>
+      <p>
+        Depuis, mon parcours m’a mené des interfaces web aux données
+        industrielles, du stage à l’alternance, puis à une année d’expérience
+        chez A5sys. J’y retrouve ce que j’aime dans le développement :
+        apprendre, résoudre et avancer avec les autres.
+      </p>
+      <p>
+        Je poursuis mon parcours à l’ECV Nantes, au sein du mastère Lead Front
+        End Developer, pour approfondir ma pratique des interfaces et leur
+        conception.
+      </p>
+      <a
+        class="pill-link"
+        [href]="profile.cv"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Consulter mon CV technique <span aria-hidden="true">↗</span></a
+      >
+    </div>
+  </section>
+  <section class="section experience-block">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">L’EXPÉRIENCE SE CONSTRUIT SUR LE TERRAIN</p>
+        <h2>Du code. <br />Et des rencontres.</h2>
       </div>
-      <div class="about-me-text">
-        <h2>Bonjour, je suis <span class="highlight">Steven Vaidie</span></h2>
-        <p>J'ai 20 ans et je viens de Vendée, en France.</p>
-        <p>Actuellement en dernière année de BUT Informatique, je suis passionné par le développement et les nouvelles technologies.</p>
+    </div>
+    <app-experience-timeline />
+  </section>
+  <section class="education-section section">
+    <div>
+      <p class="eyebrow">LE SOCLE & LA SUITE</p>
+      <h2>Ne jamais cesser <br />d’apprendre.</h2>
+      <div class="certification">
+        <span aria-hidden="true">✳</span>
+        <p>
+          <strong>Certification Opquast</strong
+          ><small>Obtenue le 11 juin 2026</small>
+        </p>
       </div>
+    </div>
+    <div class="education-list">
+      @for (course of education; track course.title) {
+        <article>
+          <span class="eyebrow">{{ course.period }}</span>
+          <h3>{{ course.title }}</h3>
+          <p>{{ course.school }}</p>
+        </article>
+      }
+    </div>
+  </section>
+  <section class="personal-section section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">HORS ÉCRAN</p>
+        <h2>Le collectif, <br />ça se cultive aussi ailleurs.</h2>
+      </div>
+      <p>
+        Le football m’accompagne depuis plus de dix ans au FCBR. Esprit
+        d’équipe, persévérance et envie de progresser : des réflexes qui me
+        suivent aussi au travail.
+      </p>
+    </div>
+    <div class="personal-grid">
+      <article class="football">
+        <span class="eyebrow">01 / LE FOOTBALL</span>
+        <div class="club-logos">
+          <img
+            src="assets/images/profile/fcbr.png"
+            alt="Football Club Bouaine Rocheservière"
+            loading="lazy"
+          /><img
+            src="assets/images/profile/fc-nantes.png"
+            alt="FC Nantes"
+            loading="lazy"
+          /><img
+            src="assets/images/profile/liverpool-fc.png"
+            alt="Liverpool FC"
+            loading="lazy"
+          />
+        </div>
+        <p>
+          Sur le terrain avec le FCBR. <br />Devant les matchs de Nantes et
+          Liverpool.
+        </p>
+      </article>
+      <article>
+        <span class="eyebrow">02 / LES NOUVEAUX HORIZONS</span>
+        <h3>Aller voir ailleurs.<span aria-hidden="true">↗</span></h3>
+        <p>
+          Berlin, Naples, Rome, Barcelone, Athènes… Voyager pour découvrir
+          d’autres façons de vivre, et revenir avec de nouvelles idées.
+        </p>
+      </article>
+      <article>
+        <span class="eyebrow">03 / LES HISTOIRES</span>
+        <h3>Changer d’univers.<span aria-hidden="true">✦</span></h3>
+        <p>
+          Jeux vidéo, séries, films et animés : d’autres terrains pour nourrir
+          la curiosité et l’imagination.
+        </p>
+      </article>
     </div>
   </section>
 </div>
-
-<div class="about-me-details">
-  <section class="football-section">
-    <h3>⚽ Ma passion pour le football</h3>
-    <p>Je joue au football depuis plus de 10 ans au FCBR (Football Club Bouaine Rocheservière).</p>
-    <div class="football-logos">
-      <img src="assets/images/profile/fcbr.png" alt="Logo FCBR" />
-      <img src="assets/images/profile/fc-nantes.png" alt="Logo FC Nantes" />
-      <img src="assets/images/profile/liverpool-fc.png" alt="Logo Liverpool FC" />
-    </div>
-    <p>Je suis également un fervent supporter du FC Nantes et de Liverpool FC.</p>
-  </section>
-  <section class="education-section">
-    <h3>🎓 Mon parcours académique</h3>
-    <ul>
-      <li>Brevet des collèges</li>
-      <li>Bac STI2D au Lycée Léonard de Vinci à Montaigu</li>
-      <li>BUT Informatique (en cours, fin prévue en août)</li>
-    </ul>
-  </section>
-  <section class="interests-section">
-    <h3>🎮 Mes centres d'intérêt</h3>
-    <ul>
-      <li>Jeux vidéo</li>
-      <li>Football</li>
-      <li>Séries, films et animés</li>
-    </ul>
-  </section>
-  <section class="travel-section">
-    <h3>🌍 Mes voyages</h3>
-    <p>J'aime voyager et découvrir de nouveaux horizons. Voici quelques pays que j'ai visités :</p>
-    <ul>
-      <li>Allemagne (Berlin)</li>
-      <li>Italie (Naples et Rome)</li>
-      <li>Espagne (plusieurs fois, dont Barcelone)</li>
-      <li>Grèce (Athènes)</li>
-    </ul>
-    <p>Ma prochaine destination prévue est la Croatie.</p>
-  </section>
-
-  <section class="career-section">
-    <h3>🎯 Mon projet professionnel</h3>
-    <p>Après l'obtention de mon BUT Informatique, je prévois de poursuivre mes études en intégrant un Master en Informatique. Cette formation me permettra d'approfondir mes compétences techniques et de me spécialiser dans des domaines tels que le développement mobile et web.</p>
-    <p>Mon objectif est de devenir un professionnel accompli dans le secteur de l'informatique, capable de relever des défis technologiques et de contribuer à des projets innovants.</p>
-  </section>
-</div>
-
-  
-  
-  
-  
-  
-  

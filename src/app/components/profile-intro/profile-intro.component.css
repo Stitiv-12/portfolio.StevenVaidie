@@ -1,0 +1,126 @@
+:host {
+  display: block;
+}
+.about-teaser {
+  display: grid;
+  grid-template-columns: 0.85fr 1fr;
+  gap: 11%;
+  align-items: center;
+}
+.portrait-frame {
+  position: relative;
+  padding: 0 0 25px 25px;
+}
+.portrait-frame::before {
+  content: "";
+  position: absolute;
+  inset: 35px 20px 0 0;
+  background: #e1e3d8;
+  z-index: -1;
+}
+.portrait-frame img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  object-position: center 35%;
+  filter: grayscale(1);
+}
+.portrait-caption {
+  position: absolute;
+  left: 0;
+  bottom: 50px;
+  background: var(--paper);
+  font: 7px/1.8 var(--mono);
+  letter-spacing: 1px;
+  padding: 14px 18px;
+}
+.portrait-stamp {
+  position: absolute;
+  right: -28px;
+  top: 30px;
+  background: #d4e4b4;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  font: 9px/1.7 var(--mono);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: rotate(12deg);
+}
+.about-copy h2 {
+  font-size: clamp(37px, 4vw, 56px);
+  letter-spacing: -0.06em;
+  line-height: 1.15;
+  margin-bottom: 28px;
+}
+.about-copy h2 > span {
+  color: var(--muted);
+}
+.about-copy > .eyebrow {
+  margin-bottom: 25px;
+}
+.about-copy > p:not(.eyebrow) {
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--muted);
+  max-width: 440px;
+  margin-bottom: 17px;
+}
+.about-facts {
+  display: flex;
+  gap: 40px;
+  padding: 25px 0 35px;
+}
+.about-facts > span {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.about-facts strong {
+  font: 500 17px var(--display);
+}
+.about-facts small {
+  font: 7px var(--mono);
+  letter-spacing: 0.5px;
+  color: var(--muted);
+}
+@media (max-width: 1050px) {
+  .portrait-frame img {
+    height: 380px;
+  }
+  .about-teaser {
+    gap: 8%;
+  }
+  .about-facts {
+    gap: 25px;
+  }
+}
+@media (max-width: 760px) {
+  .about-teaser {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 45px;
+  }
+  .portrait-frame {
+    margin-right: 25px;
+    padding-left: 20px;
+  }
+  .portrait-frame img {
+    height: 400px;
+  }
+  .portrait-stamp {
+    right: -25px;
+    width: 90px;
+    height: 90px;
+    font-size: 8px;
+  }
+  .about-copy h2 {
+    font-size: 40px;
+  }
+  .about-facts {
+    gap: 40px;
+  }
+}

@@ -1,0 +1,85 @@
+@if (!featured()) {
+  <div class="project-toolbar">
+    <div class="filters" role="group" aria-label="Filtrer les projets">
+      @for (filter of categories; track filter) {
+        <button
+          type="button"
+          [class.selected]="category() === filter"
+          [attr.aria-pressed]="category() === filter"
+          (click)="category.set(filter)"
+        >
+          {{ filter }}
+        </button>
+      }
+    </div>
+    <p aria-live="polite" class="project-count">
+      {{ visibleProjects().length }} PROJET{{
+        visibleProjects().length > 1 ? "S" : ""
+      }}
+    </p>
+  </div>
+}
+<div class="project-grid" [class.featured-grid]="featured()">
+  @for (project of visibleProjects(); track project.fragment) {
+    <article class="project" [id]="project.fragment">
+      <app-project-preview
+        [project]="project"
+        [large]="featured() && $first"
+        [compact]="featured() && !$first"
+      />
+      <div class="project-title-row">
+        <h3>{{ project.title }}</h3>
+        <span class="project-number">{{ project.number }}</span>
+      </div>
+      <p class="project-summary">{{ project.description }}</p>
+      <div class="tag-list">
+        @for (tech of project.technologies; track tech) {
+          <span class="tag">{{ tech }}</span>
+        }
+      </div>
+      <button
+        class="project-details-button"
+        type="button"
+        [attr.aria-expanded]="expanded() === project.fragment"
+        [attr.aria-controls]="'details-' + project.fragment"
+        (click)="toggleDetails(project.fragment)"
+      >
+        {{
+          expanded() === project.fragment
+            ? "Refermer le projet"
+            : "Explorer le projet"
+        }}<span aria-hidden="true">{{
+          expanded() === project.fragment ? "−" : "↗"
+        }}</span>
+      </button>
+      <div
+        class="project-details"
+        [id]="'details-' + project.fragment"
+        [hidden]="expanded() !== project.fragment"
+      >
+        <h4>{{ project.tagline }}</h4>
+        <h5>L’OBJECTIF</h5>
+        <p>{{ project.objective }}</p>
+        <h5>LA RÉALISATION</h5>
+        <p>{{ project.contribution }}</p>
+        <h5>AU CŒUR DU PROJET</h5>
+        <ul>
+          @for (feature of project.features; track feature) {
+            <li>{{ feature }}</li>
+          }
+        </ul>
+        @if (project.githubUrl) {
+          <a
+            class="text-link"
+            [href]="project.githubUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Voir le code sur GitHub <span aria-hidden="true">↗</span></a
+          >
+        } @else {
+          <p class="code-unavailable">Le code de ce projet n’est pas public.</p>
+        }
+      </div>
+    </article>
+  }
+</div>

@@ -1,6 +1,247 @@
-app-root {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+:root {
+  --paper: #f5f4ef;
+  --ink: #20221e;
+  --orange: #e3502f;
+  --orange-text: #b53d26;
+  --muted: #62655b;
+  --line: #d6d7ce;
+  --mono: "Courier New", monospace;
+  --display: "Space Grotesk", Arial, sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 120px;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "DM Sans", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: inherit;
+}
+button,
+input {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+button:focus-visible,
+a:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 5px;
+}
+::selection {
+  color: var(--paper);
+  background: var(--orange);
+}
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+h1,
+h2,
+h3 {
+  font-family: var(--display);
+  font-weight: 500;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+.wrap {
+  width: 90%;
+  max-width: 1296px;
+  margin: 0 auto;
+}
+.eyebrow {
+  font: 10px/1.6 var(--mono);
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+}
+.eyebrow .status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--orange);
+  border-radius: 50%;
+  margin-right: 9px;
+}
+.section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 45px;
+}
+.section-heading h2,
+.page-heading h1 {
+  font-size: clamp(43px, 5vw, 70px);
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+  margin-bottom: 0;
+}
+.section-heading .eyebrow {
+  margin-bottom: 22px;
+}
+.section-number {
+  color: var(--orange-text);
+  margin-right: 12px;
+}
+.text-link {
+  font-size: 12px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 5px;
+  white-space: nowrap;
+}
+.text-link span {
+  margin-left: 25px;
+}
+.pill-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 16px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 12px;
+  transition: background 0.2s;
+}
+.pill-link:hover {
+  background: var(--orange);
+  color: #10110f;
+}
+.pill-link.outline {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+.pill-link.outline:hover {
+  border-color: var(--ink);
+}
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.tag {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 6px 10px;
+  font: 10px var(--mono);
+}
+.page-heading {
+  padding-top: 75px;
+  padding-bottom: 65px;
+  border-bottom: 1px solid var(--line);
+}
+.page-heading .eyebrow {
+  margin-bottom: 25px;
+}
+.page-heading h1 {
+  font-size: clamp(60px, 8vw, 112px);
+}
+.page-heading > p:last-child {
+  max-width: 480px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 25px 0 0;
+}
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background: var(--ink);
+  color: white;
+  z-index: 50;
+  padding: 14px;
+  transform: translateY(-160%);
+}
+.skip-link:focus {
+  transform: none;
+}
+.ink {
+  background: var(--ink);
+  color: var(--paper);
+}
+.orange {
+  color: var(--orange);
+}
+[id] {
+  scroll-margin-top: 115px;
+}
+.small-label {
+  font: 10px var(--mono);
+  color: var(--muted);
+}
+@media (max-width: 760px) {
+  .wrap {
+    width: 88%;
   }
-  
+  .section {
+    padding-top: 65px;
+    padding-bottom: 65px;
+  }
+  .section-heading {
+    align-items: flex-start;
+    gap: 25px;
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+  .section-heading h2 {
+    font-size: 43px;
+  }
+  .section-heading .eyebrow {
+    margin-bottom: 18px;
+  }
+  .page-heading {
+    padding-top: 55px;
+    padding-bottom: 45px;
+  }
+  .page-heading h1 {
+    font-size: clamp(50px, 15.9vw, 62px);
+  }
+  .page-heading > p:last-child {
+    font-size: 14px;
+  }
+  .pill-link {
+    padding: 15px 20px;
+  }
+  .text-link {
+    font-size: 11px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

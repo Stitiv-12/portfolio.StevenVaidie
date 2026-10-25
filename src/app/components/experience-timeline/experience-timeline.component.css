@@ -1,0 +1,91 @@
+.experience {
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 29% 1fr 35px;
+  gap: 24px;
+  padding: 35px 0 38px;
+}
+.experience-period {
+  font: 10px/1.8 var(--mono);
+  color: var(--muted);
+  position: relative;
+  padding-left: 18px;
+}
+.timeline-point {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  position: absolute;
+  top: 6px;
+  left: 0;
+  background: #8b8f83;
+}
+.current .timeline-point {
+  background: var(--orange);
+  box-shadow: 0 0 0 4px #ee583815;
+}
+.recent-label {
+  display: block;
+  font-size: 8px;
+  color: var(--orange-text);
+  margin-top: 8px;
+  letter-spacing: 1px;
+}
+.experience h3 {
+  font-size: 27px;
+  letter-spacing: -1px;
+  margin-bottom: 6px;
+}
+.experience-role {
+  font-size: 12px;
+  margin-bottom: 20px;
+  color: var(--muted);
+}
+.experience-description {
+  max-width: 480px;
+  font-size: 13px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: var(--muted);
+}
+.experience-arrow {
+  font-size: 28px;
+}
+.current .experience-arrow {
+  color: var(--orange);
+}
+@media (max-width: 760px) {
+  .experience {
+    grid-template-columns: 1fr 25px;
+    gap: 15px;
+    padding: 28px 0;
+  }
+  .experience-period {
+    grid-column: 1/-1;
+    margin-bottom: 0;
+  }
+  .recent-label {
+    display: inline;
+    margin-left: 12px;
+  }
+  .experience-content {
+    grid-column: 1;
+  }
+  .experience h3 {
+    font-size: 25px;
+  }
+  .experience-arrow {
+    grid-row: 2;
+    grid-column: 2;
+  }
+  .experience-description {
+    font-size: 12px;
+  }
+}
+.experience-achievements {
+  padding-left: 18px;
+  margin: 0 0 20px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted);
+}
