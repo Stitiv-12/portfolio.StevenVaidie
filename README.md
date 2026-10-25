@@ -21,7 +21,7 @@ npm ci
 npm start
 ```
 
-Ouvrir [http://localhost:4200](http://localhost:4200). Les modifications sont rechargées automatiquement.
+Ouvrir [http://localhost:4200](http://localhost:4200). Les modifications sont rechargées automatiquement. Pour un aperçu accessible depuis Windows via WSL, `npm start -- --host 0.0.0.0` conserve explicitement les seuls hôtes locaux autorisés (`localhost`, `127.0.0.1` et `[::1]`), sans wildcard.
 
 ## Validation
 
@@ -68,3 +68,16 @@ Angular 22 vérifie les hôtes des requêtes SSR. Les adresses locales sont auto
 ## Organisation Git
 
 `main` conserve la version finale. Les branches de travail partent de `dev` et sont proposées en pull request vers `dev`, après développement et relecture indépendants. La fusion finale de `dev` dans `main` est effectuée par Steven.
+
+## Personnaliser les contenus
+
+Les informations publiques sont centralisées dans `src/app/data/portfolio.ts` : profil, projets, expériences et domaines de compétences. Pour enrichir l’expérience A5sys, modifier l’entrée correspondante de `EXPERIENCES` (poste, mission, technologies et futurs faits marquants). Le tableau `achievements` est réservé aux réalisations que Steven pourra préciser ; ne renseigner que des faits vérifiés. Les pages et la chronologie réutilisent ces données.
+
+Le document téléchargeable est `src/assets/documents/cv.pdf`. Les aperçus des projets sont des illustrations HTML/CSS, identifiées comme telles, et non des captures d’écran des applications.
+
+### Interactions
+
+- Navigation responsive avec fermeture au clavier et lors d’un changement de page.
+- Projets filtrables et cas détaillés dépliables, avec conservation des anciens fragments d’URL.
+- Constellation interactive pour explorer interface, logique serveur et données.
+- Prise en compte de la préférence de réduction des animations.

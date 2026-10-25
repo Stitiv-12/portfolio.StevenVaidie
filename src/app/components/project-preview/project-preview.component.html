@@ -1,0 +1,112 @@
+@let project = item();
+<div
+  [class]="'project-visual visual-' + project.visual"
+  [class.large]="large()"
+  [class.compact]="compact()"
+  aria-hidden="true"
+>
+  <span class="visual-type">{{ project.category }}</span
+  ><span class="visual-index">{{ project.number }} / 08</span>
+  @switch (project.visual) {
+    @case ("sanatio") {
+      <div class="phone">
+        <div class="phone-status"><span>9:41</span><span>••• ▰</span></div>
+        <div class="phone-brand">sanatio<span>+</span></div>
+        <p>Bonjour, Alex <span>☀</span></p>
+        <h4>Prenez soin <br />de vous.</h4>
+        <div class="phone-date">
+          <span>AUJOURD’HUI</span><strong>Vos traitements</strong>
+        </div>
+        <div class="medicine">
+          <span class="medicine-icon">✚</span>
+          <div>
+            <strong>Prise du matin</strong><small>08:00 · Après le repas</small>
+          </div>
+          <span>✓</span>
+        </div>
+        <div class="medicine faint">
+          <span class="medicine-icon">✚</span>
+          <div>
+            <strong>Prise du soir</strong><small>20:00 · À venir</small>
+          </div>
+          <span>○</span>
+        </div>
+        <div class="phone-nav">⌂ <span>▦</span> ♡</div>
+      </div>
+      <span class="visual-note">LE QUOTIDIEN, SIMPLIFIÉ.</span>
+    }
+    @case ("particles") {
+      <div class="particle-field">
+        @for (particle of particles; track particle) {
+          <span class="particle" [style.--i]="particle"></span>
+        }
+        <div class="particle-center">go<span>with the flow.</span></div>
+        <span class="particle-axis axis-x"></span
+        ><span class="particle-axis axis-y"></span>
+      </div>
+      <span class="visual-note">CODE × MOUVEMENT</span>
+    }
+    @case ("perfume") {
+      <div class="perfume-title">
+        L’ESSENTIEL<span>UNE QUESTION DE NOTES.</span>
+      </div>
+      <div class="bottle">
+        <div class="bottle-cap"></div>
+        <div class="bottle-glass">
+          <span
+            >É <br /><small>EAU DE PARFUM <br />50 ML</small></span
+          >
+        </div>
+      </div>
+      <span class="perfume-circle"></span
+      ><span class="visual-note">UNE BOUTIQUE, TOUT UN PARCOURS.</span>
+    }
+    @case ("connect") {
+      <div class="connect-board">
+        @for (slot of slots; track slot) {
+          <span
+            [class.filled-orange]="[3, 10, 17, 24, 26].includes(slot)"
+            [class.filled-yellow]="[18, 19, 25, 27].includes(slot)"
+          ></span>
+        }
+      </div>
+      <span class="visual-note">À VOUS DE JOUER.</span>
+    }
+    @case ("dice") {
+      <div class="dice-scene">
+        <div class="die">
+          ● <br />
+          ● <br />●
+        </div>
+        <div class="die second">
+          ● ● <br />
+          ● <br />● ●
+        </div>
+        <span>PICKOMINO</span>
+      </div>
+      <span class="visual-note">DU PLATEAU À L’ÉCRAN.</span>
+    }
+    @case ("data") {
+      <div class="data-scene">
+        <span>&lt;AML&gt;</span><i>↔</i
+        ><span>React <br /><small>INTERFACE</small></span
+        ><i>↔</i><span>C#</span>
+      </div>
+      <span class="visual-note">CONNECTER LES DONNÉES.</span>
+    }
+    @case ("portfolio") {
+      <div class="portfolio-scene">
+        <span>sv<span class="orange">.</span></span
+        ><small>TOUJOURS APPRENDRE. <br />TOUJOURS CONSTRUIRE.</small>
+      </div>
+      <span class="visual-note">VOUS Y ÊTES.</span>
+    }
+    @case ("cards") {
+      <div class="cards-scene">
+        <span>01 <br />♜</span><span>02 <br />⚡</span><span>03 <br />✦</span>
+      </div>
+      <span class="visual-note">UN DECK, UNE PERSONNALITÉ.</span>
+    }
+  }
+  <span class="illustration-label">INTERPRÉTATION VISUELLE DU PROJET</span>
+</div>

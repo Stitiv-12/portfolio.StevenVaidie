@@ -1,63 +1,257 @@
-/* NAVBAR */
-.navbar {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  justify-content: center;
-  background: rgba(51, 51, 51, 0.85);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  padding: 10px 20px;
-  z-index: 1000;
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(245, 244, 239, 0.95);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(14px);
 }
-
-/* LIENS */
-.navbar ul {
+.header-inner {
+  max-width: 1440px;
+  margin: auto;
+  min-height: 92px;
+  padding: 0 5%;
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 30px;
+  gap: 26px;
 }
-
-.navbar li a {
-  color: white;
+.wordmark {
+  font-weight: 850;
+  letter-spacing: -6px;
+  font-size: 50px;
+  line-height: 1;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 16px;
-  transition: color 0.3s ease, transform 0.3s ease;
 }
-
-.navbar li a:hover {
-  color: #f39c12;
-  transform: scale(1.1);
+.wordmark span {
+  color: var(--orange);
 }
-
-/* CONTENU PRINCIPAL */
-.page-content {
-  padding-top: 100px; /* adapte selon la hauteur totale de ta navbar */
-  width: 100%;
-  max-width: 1200px;
+.header-caption {
+  font-family: var(--mono);
+  font-size: 9px;
+  line-height: 1.55;
+  letter-spacing: 0.6px;
 }
-
-@media screen and (max-width: 600px) {
-  .navbar {
-    width: 90%; /* plus large sur mobile */
-    padding: 10px 15px;
+.header-inner nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.header-inner nav a {
+  text-decoration: none;
+  font-size: 13px;
+  position: relative;
+  white-space: nowrap;
+}
+.header-inner nav a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -9px;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+.nav-index {
+  font-family: var(--mono);
+  font-size: 9px;
+  vertical-align: super;
+  color: var(--muted);
+}
+.header-inner nav .nav-contact {
+  border: 1px solid var(--ink);
+  border-radius: 30px;
+  padding: 13px 20px;
+  margin-left: 12px;
+}
+.nav-contact span {
+  padding-left: 14px;
+}
+.menu-toggle {
+  display: none;
+}
+.site-footer {
+  background: var(--ink);
+  color: var(--paper);
+  padding-top: 88px;
+}
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-top h2 {
+  font-size: clamp(54px, 7.5vw, 110px);
+  line-height: 1;
+  letter-spacing: -0.065em;
+  margin: 27px 0 40px;
+  font-weight: 600;
+}
+.footer-top h2 > span:first-child {
+  color: #a4a39e;
+}
+.orange-dot {
+  font-size: 0.3em;
+  color: var(--orange);
+  vertical-align: baseline;
+  padding-left: 12px;
+}
+.contact-circle {
+  width: 148px;
+  height: 148px;
+  border: 1px solid #77766f;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-decoration: none;
+  transition:
+    background 0.25s,
+    color 0.25s;
+}
+.contact-circle > span:first-child {
+  font-size: 58px;
+  font-weight: 300;
+  line-height: 1;
+}
+.contact-circle > span:last-child {
+  font: 9px var(--mono);
+  letter-spacing: 1px;
+}
+.contact-circle:hover {
+  background: var(--orange);
+  color: #10110f;
+  border-color: var(--orange);
+}
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 65px;
+}
+.email-link {
+  text-underline-offset: 6px;
+  font-size: 19px;
+}
+.footer-links > div {
+  display: flex;
+  gap: 26px;
+}
+.footer-links > div a {
+  text-decoration: none;
+  font-size: 13px;
+}
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  border-top: 1px solid #3c3c37;
+  color: #a4a39e;
+  font: 10px var(--mono);
+}
+.footer-bottom a {
+  text-decoration: none;
+}
+.menu-toggle span {
+  padding-left: 10px;
+}
+@media (max-width: 1050px) {
+  .header-caption {
+    display: none;
   }
-
-  .navbar ul {
-    gap: 16px; /* réduit l’écart entre les éléments si besoin */
-    flex-wrap: nowrap; /* s’assurer que tout reste sur une ligne */
+  .header-inner nav {
+    gap: 20px;
   }
-
-  .navbar li a {
-    font-size: 14px; /* tu peux aussi légèrement réduire la taille */
-    white-space: nowrap; /* évite les retours à la ligne */
+  .header-inner nav .nav-contact {
+    margin-left: 0;
+  }
+}
+@media (max-width: 760px) {
+  .header-inner {
+    min-height: 76px;
+    justify-content: space-between;
+    padding: 0 6%;
+  }
+  .wordmark {
+    font-size: 43px;
+  }
+  .menu-toggle {
+    display: block;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background: none;
+    padding: 10px 16px;
+    font: 12px var(--mono);
+  }
+  .header-inner nav {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 76px;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    padding: 30px 6%;
+    align-items: flex-start;
+    gap: 25px;
+  }
+  .header-inner nav.is-open {
+    display: flex;
+    flex-direction: column;
+  }
+  .header-inner nav a {
+    font-size: 19px;
+  }
+  .header-inner nav .nav-contact {
+    font-size: 14px;
+  }
+  .footer-top {
+    align-items: flex-end;
+  }
+  .site-footer {
+    padding-top: 60px;
+  }
+  .footer-top h2 {
+    font-size: 58px;
+  }
+  .contact-circle {
+    width: 88px;
+    height: 88px;
+    flex-shrink: 0;
+    margin-bottom: 40px;
+  }
+  .contact-circle > span:first-child {
+    font-size: 36px;
+  }
+  .contact-circle > span:last-child {
+    font-size: 7px;
+  }
+  .footer-links {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 30px;
+    padding-bottom: 45px;
+  }
+  .email-link {
+    font-size: 16px;
+  }
+  .footer-bottom {
+    flex-wrap: wrap;
+    line-height: 1.8;
+    font-size: 9px;
+  }
+  .footer-bottom > span:nth-child(2) {
+    order: 3;
+    flex-basis: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contact-circle {
+    transition: none;
   }
 }

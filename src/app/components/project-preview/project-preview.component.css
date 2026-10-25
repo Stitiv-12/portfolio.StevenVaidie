@@ -1,0 +1,226 @@
+:host {
+  display: block;
+}
+.project-visual.large {
+  height: 620px;
+}
+.project-visual.compact {
+  height: 270px;
+}
+.project-visual {
+  height: 375px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  isolation: isolate;
+}
+.visual-type,
+.visual-index,
+.visual-note,
+.illustration-label {
+  position: absolute;
+  font: 8px var(--mono);
+  letter-spacing: 0.7px;
+  z-index: 4;
+}
+.visual-type {
+  top: 21px;
+  left: 21px;
+}
+.visual-index {
+  top: 21px;
+  right: 21px;
+}
+.visual-note {
+  bottom: 32px;
+  left: 21px;
+  font-size: 8px;
+}
+.illustration-label {
+  bottom: 16px;
+  left: 21px;
+  font-size: 6px;
+  opacity: 1;
+}
+.visual-sanatio {
+  background: #e0e9e6;
+}
+.phone {
+  position: relative;
+  width: 192px;
+  height: 350px;
+  padding: 14px 16px;
+  background: #fafcf9;
+  border: 5px solid #2f4b48;
+  border-radius: 29px;
+  transform: rotate(-8deg);
+  box-shadow: 15px 22px 0 #32524a15;
+  color: #234e46;
+}
+.phone-status {
+  display: flex;
+  justify-content: space-between;
+  font-size: 7px;
+  font-weight: 700;
+  padding-bottom: 20px;
+}
+.phone-brand {
+  font-weight: 700;
+  letter-spacing: -1px;
+  font-size: 20px;
+  margin-bottom: 26px;
+}
+.phone-brand span {
+  color: #7da88e;
+}
+.phone > p {
+  font-size: 8px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.phone h4 {
+  font-size: 24px;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  font-weight: 500;
+  margin: 0 0 23px;
+}
+.phone-date {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+.phone-date > span {
+  font: 5px var(--mono);
+  letter-spacing: 1px;
+  opacity: 1;
+}
+.phone-date strong {
+  font-size: 9px;
+  font-weight: 500;
+}
+.medicine {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #dce9d8;
+  padding: 10px 7px;
+  border-radius: 9px;
+  margin-bottom: 8px;
+}
+.medicine-icon {
+  font-size: 15px;
+}
+.medicine > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.medicine strong {
+  font-size: 7px;
+  font-weight: 500;
+}
+.medicine small {
+  font-size: 5px;
+}
+.medicine > span:last-child {
+  margin-left: auto;
+  font-size: 8px;
+}
+.medicine.faint {
+  background: #f0f2eb;
+}
+.phone-nav {
+  display: flex;
+  justify-content: space-around;
+  font-size: 17px;
+  margin-top: 12px;
+}
+.phone-nav span {
+  opacity: 0.4;
+}
+.visual-particles {
+  background: #252922;
+  color: #e4e9d5;
+}
+.particle-field {
+  position: absolute;
+  inset: 0;
+}
+.particle {
+  --x: calc(mod(var(--i) * 37, 91) * 1%);
+  position: absolute;
+  width: calc(3px + mod(var(--i), 5) * 2px);
+  height: calc(3px + mod(var(--i), 5) * 2px);
+  left: var(--x);
+  top: calc(mod(var(--i) * 23, 85) * 1% + 9%);
+  border-radius: 50%;
+  background: #cee8a7;
+  opacity: calc(0.25 + mod(var(--i), 4) * 0.2);
+  animation: float 5s ease-in-out infinite alternate;
+  animation-delay: calc(var(--i) * -0.3s);
+}
+.particle-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font: 500 100px/0.8 var(--display);
+  letter-spacing: -12px;
+}
+.particle-center span {
+  display: block;
+  font: 9px var(--mono);
+  letter-spacing: 1px;
+  text-align: center;
+  margin-top: 20px;
+}
+.particle-axis {
+  position: absolute;
+  background: #ffffff10;
+}
+.axis-x {
+  top: 50%;
+  width: 100%;
+  height: 1px;
+}
+.axis-y {
+  left: 50%;
+  height: 100%;
+  width: 1px;
+}
+@keyframes float {
+  to {
+    transform: translate(8px, -10px);
+  }
+}
+@media (max-width: 1150px) {
+  .project-visual.compact {
+    height: 310px;
+  }
+  .project-visual.large {
+    height: 525px;
+  }
+}
+@media (max-width: 760px) {
+  .project-visual,
+  .project-visual.large,
+  .project-visual.compact {
+    height: 365px;
+  }
+  .phone {
+    height: 327px;
+    width: 180px;
+    transform: rotate(-8deg) scale(0.88);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .particle {
+    animation: none;
+  }
+}

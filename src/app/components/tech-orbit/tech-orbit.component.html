@@ -1,0 +1,40 @@
+<div class="orbit-card">
+  <div class="orbit-caption">
+    <span>DE L’IDÉE À L’INTERFACE</span
+    ><span aria-hidden="true">[ EXPLOREZ ]</span>
+  </div>
+  <div class="orbit-stage">
+    <div class="orbit-ring ring-one" aria-hidden="true"></div>
+    <div class="orbit-ring ring-two" aria-hidden="true"></div>
+    <div class="orbit-ring ring-three" aria-hidden="true"></div>
+    <span class="orbit-cross cross-one" aria-hidden="true">+</span
+    ><span class="orbit-cross cross-two" aria-hidden="true">+</span>
+    <div class="orbit-core" aria-hidden="true">
+      <span>sv<span class="core-dot">.</span></span
+      ><small>TOUJOURS EN MOUVEMENT</small>
+    </div>
+    @for (node of nodes; track node.code; let i = $index) {
+      <button
+        type="button"
+        class="orbit-node"
+        [class]="'orbit-node node-' + i"
+        [class.selected]="activeNode() === i"
+        [attr.aria-pressed]="activeNode() === i"
+        aria-controls="orbit-description"
+        (click)="activeNode.set(i)"
+      >
+        <span>{{ node.code }}</span
+        ><small>{{ node.label }}</small>
+      </button>
+    }
+    <span class="satellite" aria-hidden="true"></span>
+  </div>
+  <div class="orbit-info" id="orbit-description" aria-live="polite">
+    <span class="info-index">0{{ activeNode() + 1 }} / 03</span>
+    <div>
+      <strong>{{ nodes[activeNode()].tech }}</strong>
+      <p>{{ nodes[activeNode()].description }}</p>
+    </div>
+    <span class="info-arrow" aria-hidden="true">↗</span>
+  </div>
+</div>

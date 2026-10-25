@@ -1,32 +1,23 @@
-<section class="projects-section">
-  <h2>Mes Projets</h2>
-  @for (project of projects; track project) {
-    <div class="project-item " [id]="project.fragment">
-      <h3>{{ project.title }}</h3>
-      <p><strong>Objectif:</strong> {{ project.objective }}</p>
-      @if (project.realisation && project.realisation != null) {
-        <p><strong>Réalisation:</strong> {{ project.realisation }}</p>
-      }
-      <p class="description">{{ project.description }}</p>
-      @if (project.functions && project.functions.length > 0) {
-        <div class="functions">
-          <h4>Fonctions :</h4>
-          <ul>
-            @for (func of project.functions; track func) {
-              <li>{{ func }}</li>
-            }
-          </ul>
-        </div>
-      }
-      <div class="cta">
-        @if (project.githubUrl) {
-          <a [href]="project.githubUrl" target="_blank">
-            Accéder au code sur Github
-          </a>
-        } @else {
-          <span class="no-code-message">Code non disponible</span>
-        }
-      </div>
-    </div>
-  }
-</section>
+<div class="wrap">
+  <header class="page-heading">
+    <p class="eyebrow">
+      <span class="section-number">01 /</span>PROJETS & EXPLORATIONS
+    </p>
+    <h1>Des idées. <br /><span class="orange">Du concret.</span></h1>
+    <p>
+      Web, mobile ou terrain de jeu technique : chaque projet est une occasion
+      d’apprendre quelque chose, puis de lui donner forme.
+    </p>
+  </header>
+  <section class="section projects-list" aria-label="Sélection de projets">
+    <app-project-gallery />
+  </section>
+  <aside class="project-note">
+    <span aria-hidden="true">✳</span>
+    <p>
+      Les aperçus sont des interprétations visuelles des projets. Explorez
+      chaque cas pour découvrir son objectif, sa réalisation et le code
+      lorsqu’il est public.
+    </p>
+  </aside>
+</div>

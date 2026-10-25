@@ -1,12 +1,91 @@
-<nav class="navbar">
-  <ul>
-    <li><a routerLink="/">Accueil</a></li>
-    <li><a routerLink="/about">À propos de moi</a></li>
-    <li><a routerLink="/projects">Projets</a></li>
-    <li><a routerLink="/competence">Competences</a></li>
-  </ul>
-</nav>
-
-<div class="page-content">
-  <router-outlet></router-outlet>
-</div>
+<a class="skip-link" [href]="mainAnchor()">Aller au contenu</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="wordmark" routerLink="/" aria-label="Steven Vaidie, accueil"
+      >sv<span>.</span></a
+    >
+    <span class="header-caption">CONCEPTEUR <br />DÉVELOPPEUR</span>
+    <button
+      class="menu-toggle"
+      #menuButton
+      type="button"
+      aria-controls="main-navigation"
+      [attr.aria-expanded]="menuOpen()"
+      (click)="menuOpen.set(!menuOpen())"
+    >
+      {{ menuOpen() ? "Fermer" : "Menu" }}
+      <span aria-hidden="true">{{ menuOpen() ? "−" : "+" }}</span>
+    </button>
+    <nav
+      id="main-navigation"
+      aria-label="Navigation principale"
+      [class.is-open]="menuOpen()"
+    >
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ariaCurrentWhenActive="page"
+        >Accueil</a
+      >
+      <a
+        routerLink="/projects"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Projets <span class="nav-index">08</span></a
+      >
+      <a
+        routerLink="/about"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Parcours</a
+      >
+      <a
+        routerLink="/competence"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Compétences</a
+      >
+      <a class="nav-contact" [href]="'mailto:' + profile.email"
+        >Parlons ensemble <span aria-hidden="true">↗</span></a
+      >
+    </nav>
+  </div>
+</header>
+<main id="main-content" tabindex="-1"><router-outlet /></main>
+<footer class="site-footer">
+  <div class="footer-top wrap">
+    <div>
+      <p class="eyebrow">UNE IDÉE, UN PROJET, UNE QUESTION ?</p>
+      <h2>
+        Faisons le <br /><span>premier pas.</span
+        ><span class="orange-dot">●</span>
+      </h2>
+    </div>
+    <a
+      class="contact-circle"
+      [href]="'mailto:' + profile.email"
+      aria-label="Écrire à Steven Vaidie"
+      ><span aria-hidden="true">↗</span><span>ÉCHANGEONS</span></a
+    >
+  </div>
+  <div class="footer-links wrap">
+    <a class="email-link" [href]="'mailto:' + profile.email">{{
+      profile.email
+    }}</a>
+    <div>
+      <a [href]="profile.github" target="_blank" rel="noopener noreferrer"
+        >GitHub ↗</a
+      ><a [href]="profile.linkedin" target="_blank" rel="noopener noreferrer"
+        >LinkedIn ↗</a
+      ><a [href]="profile.cv" target="_blank" rel="noopener noreferrer"
+        >Mon CV ↗</a
+      >
+    </div>
+  </div>
+  <div class="footer-bottom wrap">
+    <span>© Steven Vaidie · Portfolio</span
+    ><span>Pensé avec curiosité. Construit avec Angular.</span
+    ><a [href]="mainAnchor()">Retour en haut ↑</a>
+  </div>
+</footer>

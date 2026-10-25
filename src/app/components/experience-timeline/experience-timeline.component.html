@@ -1,0 +1,31 @@
+<div class="timeline">
+  @for (experience of experiences; track experience.role + experience.company) {
+    <article class="experience" [class.current]="experience.current">
+      <p class="experience-period">
+        <span class="timeline-point" aria-hidden="true"></span
+        >{{ experience.period }}
+        @if (experience.current) {
+          <span class="recent-label">RÉCEMMENT</span>
+        }
+      </p>
+      <div class="experience-content">
+        <h3>{{ experience.company }}</h3>
+        <p class="experience-role">{{ experience.role }}</p>
+        <p class="experience-description">{{ experience.description }}</p>
+        @if (experience.achievements?.length) {
+          <ul class="experience-achievements">
+            @for (achievement of experience.achievements; track achievement) {
+              <li>{{ achievement }}</li>
+            }
+          </ul>
+        }
+        <div class="tag-list">
+          @for (tag of experience.tags; track tag) {
+            <span class="tag">{{ tag }}</span>
+          }
+        </div>
+      </div>
+      <span class="experience-arrow" aria-hidden="true">↗</span>
+    </article>
+  }
+</div>

@@ -1,45 +1,96 @@
-<div class="hero-section">
-  <img [src]="profileImage" alt="Photo de profil" class="profile-image" />
-  <div class="hero-text">
-    <h1>Bonjour, je suis <span class="highlight">{{ name }}</span></h1>
-    <p class="subtitle">{{ subtitle }}</p>
-    <p class="description">{{ description }}</p>
+<section class="hero wrap">
+  <div class="hero-copy">
+    <p class="eyebrow">
+      <span class="status-dot"></span>STEVEN VAIDIE · CONCEPTEUR DÉVELOPPEUR
+    </p>
+    <h1>
+      Des idées <br />claires. <br /><span
+        >Des interfaces <br />qui comptent.</span
+      >
+    </h1>
+    <p class="hero-description">
+      J’aime comprendre, apprendre et construire. <br />Du premier pixel à la
+      logique qui l’anime, je transforme les idées en expériences utiles.
+    </p>
+    <div class="hero-actions">
+      <a class="pill-link" routerLink="/projects"
+        >Explorer mes projets <span aria-hidden="true">↗</span></a
+      ><a
+        class="hero-cv"
+        [href]="profile.cv"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Mon CV <span aria-hidden="true">↓</span></a
+      >
+    </div>
+  </div>
+  <div class="hero-visual">
+    <app-tech-orbit />
+    <div class="hero-visual-caption">
+      <span
+        >FRONT-END PAR CURIOSITÉ. <br />FULL STACK PAR ENVIE DE
+        COMPRENDRE.</span
+      ><span aria-hidden="true">⌘</span>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <span>ANCRÉ EN VENDÉE. TOURNÉ VERS LA SUITE.</span
+    ><a href="#selection"
+      >LA SUITE JUSTE EN DESSOUS <span aria-hidden="true">↓</span></a
+    >
+  </div>
+</section>
+<div class="expertise-strip">
+  <div class="wrap">
+    <span>INTERFACES WEB</span><span aria-hidden="true">✳</span
+    ><span>APPLICATIONS MOBILES</span><span aria-hidden="true">✳</span
+    ><span>EXPÉRIENCES UTILES</span><span aria-hidden="true">✳</span
+    ><span>APPRENTISSAGE CONTINU</span>
   </div>
 </div>
-
-
-<div class="container-contact-section">
-  <div class="contact-section">
-    <h2>Réseaux Sociaux</h2>
-    <ul class="social-media-list">
-      @for (link of socialMediaLinks; track link) {
-        <li>
-          <a [href]="link.url" target="_blank">{{ link.name }}</a>
-        </li>
-      }
-    </ul>
+<section id="selection" class="section wrap">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">
+        <span class="section-number">01 /</span>QUELQUES TERRAINS DE JEU
+      </p>
+      <h2>Le code, oui. <br />Ce qu’il permet, surtout.</h2>
+    </div>
+    <a class="text-link" routerLink="/projects"
+      >Les 8 projets <span aria-hidden="true">↗</span></a
+    >
   </div>
-  <div class="contact-section">
-    <h2>Projets</h2>
-    <ul class="projects-list">
-      @for (project of projects; track project) {
-        <li>
-          <a [routerLink]="['/projects']" [fragment]="project.fragment">
-            {{ project.name }} : {{ project.description }}
-          </a>
-        </li>
-      }
-    </ul>
+  <app-project-gallery [featured]="true" />
+</section>
+<section class="experience-section section">
+  <div class="wrap">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">
+          <span class="section-number">02 /</span>DU CÔTÉ DU TERRAIN
+        </p>
+        <h2>Apprendre en faisant. <br />Grandir en équipe.</h2>
+      </div>
+      <p class="section-aside">
+        Des premiers projets industriels à mon expérience chez A5sys, chaque
+        étape élargit ma façon de développer.
+      </p>
+    </div>
+    <app-experience-timeline />
   </div>
-
-  <div class="contact-section">
-    <h2>Contact</h2>
-    <h3>Email</h3>
-    <p>{{ email }}</p>
-    <h3>Téléphone</h3>
-    <p>{{ phone }}</p>
+</section>
+<app-profile-intro />
+<section class="approach-band">
+  <div class="wrap">
+    <span class="eyebrow">MA FAÇON D’AVANCER</span>
+    <p>
+      Comprendre<span aria-hidden="true">↗</span>Construire<span
+        aria-hidden="true"
+        >↗</span
+      >Améliorer<span class="orange" aria-hidden="true">✳</span>
+    </p>
+    <a class="text-link" routerLink="/competence"
+      >Explorer mes compétences <span aria-hidden="true">↗</span></a
+    >
   </div>
-</div>
-
-
-
+</section>

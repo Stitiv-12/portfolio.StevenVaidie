@@ -1,52 +1,75 @@
-<section class="skills-section">
-  <h2>Soft Skills</h2>
-  <ul class="soft-skills-list">
-    @for (skill of softSkills; track skill) {
-      <li>{{ skill }}</li>
+<div class="wrap">
+  <header class="page-heading">
+    <p class="eyebrow">
+      <span class="section-number">03 /</span>UNE BOÎTE À OUTILS QUI ÉVOLUE
+    </p>
+    <h1>
+      La bonne approche. <br /><span class="orange">Puis les bons outils.</span>
+    </h1>
+    <p>
+      Des technologies rencontrées en formation, en entreprise et dans mes
+      projets. Je les relie à des usages concrets, avec toujours l’envie d’aller
+      plus loin.
+    </p>
+  </header>
+  <section class="skills-intro section">
+    <div>
+      <p class="eyebrow">COMPRENDRE L’ENSEMBLE</p>
+      <h2>De ce que l’on voit <br />à ce qui le fait vivre.</h2>
+      <p>
+        Mon intérêt pour les interfaces m’amène aussi à regarder derrière : la
+        logique, les API, les données et la façon dont elles circulent.
+      </p>
+      <p>
+        Sélectionnez un élément pour explorer ces trois facettes d’une
+        application.
+      </p>
+      <a class="text-link" routerLink="/projects"
+        >Les voir dans mes projets <span aria-hidden="true">↗</span></a
+      >
+    </div>
+    <app-tech-orbit />
+  </section>
+  <section class="skill-groups" aria-label="Domaines de compétences">
+    @for (group of groups; track group.number) {
+      <article class="skill-group">
+        <span class="skill-index">{{ group.number }}</span>
+        <div class="skill-group-heading">
+          <h2>{{ group.title }}</h2>
+          <p>{{ group.description }}</p>
+        </div>
+        <div class="skill-technologies">
+          @for (tech of group.technologies; track tech) {
+            <span>{{ tech }}</span>
+          }
+        </div>
+        <span
+          class="skill-symbol"
+          [class]="'skill-symbol tone-' + group.tone"
+          aria-hidden="true"
+          >✳</span
+        >
+      </article>
     }
-  </ul>
-</section>
-
-<section class="skills-section">
-  <h2>Hard Skills</h2>
-
-  <!-- Front-End Skills -->
-  <div class="skills-category">
-    <h3>Front-End</h3>
-    <div class="hard-skills-grid">
-      @for (skill of frontEndSkills; track skill) {
-        <div class="skill-item">
-          <img [src]="skill.image" [alt]="skill.name" />
-          <span>{{ skill.name }}</span>
-        </div>
-      }
+  </section>
+  <section class="soft-skills section">
+    <div>
+      <p class="eyebrow">AU-DELÀ DES TECHNOLOGIES</p>
+      <h2>
+        Le code se construit <br /><span class="orange">avec les autres.</span>
+      </h2>
     </div>
-  </div>
-
-  <!-- Back-End Skills -->
-  <div class="skills-category">
-    <h3>Back-End</h3>
-    <div class="hard-skills-grid">
-      @for (skill of backEndSkills; track skill) {
-        <div class="skill-item">
-          <img [src]="skill.image" [alt]="skill.name" />
-          <span>{{ skill.name }}</span>
-        </div>
-      }
+    <div>
+      <p>
+        Échanger, écouter et s’adapter font autant partie du travail que
+        développer. Ce sont aussi les qualités que je cultive sur le terrain de
+        football et dans mes projets d’équipe.
+      </p>
+      <div class="soft-skill-list">
+        @for (skill of softSkills; track skill) {
+          <span>{{ skill }} <span aria-hidden="true">↗</span></span>
+        }
+      </div>
     </div>
-  </div>
-
-  <!-- Tools & Technologies -->
-  <div class="skills-category">
-    <h3>Tools & Technologies</h3>
-    <div class="hard-skills-grid">
-      @for (skill of toolsSkills; track skill) {
-        <div class="skill-item">
-          <img [src]="skill.image" [alt]="skill.name" />
-          <span>{{ skill.name }}</span>
-        </div>
-      }
-    </div>
-  </div>
-</section>
-
+  </section>
+</div>

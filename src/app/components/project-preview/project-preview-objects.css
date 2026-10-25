@@ -1,0 +1,181 @@
+.visual-perfume {
+  background: #e9e3d6;
+}
+.perfume-title {
+  position: absolute;
+  left: 25px;
+  top: 60px;
+  font: 500 25px var(--display);
+  letter-spacing: -1px;
+  z-index: 3;
+}
+.perfume-title > span {
+  display: block;
+  font: 5px var(--mono);
+  letter-spacing: 1.5px;
+  margin-top: 10px;
+}
+.bottle {
+  position: relative;
+  z-index: 2;
+  transform: rotate(12deg);
+  margin: 35px 0 0 35px;
+}
+.bottle-cap {
+  height: 38px;
+  background: #31352a;
+  width: 41px;
+  margin: 0 auto;
+}
+.bottle-glass {
+  height: 153px;
+  width: 103px;
+  background: linear-gradient(100deg, #f7f1d580, #d0ba7c90);
+  border: 1px solid #c1b58e;
+  box-shadow: 12px 18px 12px #3d3a2415;
+  display: grid;
+  place-items: center;
+}
+.bottle-glass > span {
+  font: 500 40px var(--display);
+  text-align: center;
+}
+.bottle-glass small {
+  display: block;
+  font: 5px/1.8 var(--mono);
+  letter-spacing: 0.5px;
+  margin-top: 10px;
+}
+.perfume-circle {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: #d6cbb7;
+  bottom: -30px;
+  right: -25px;
+}
+.visual-connect {
+  background: #d3dfea;
+}
+.connect-board {
+  width: 200px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 7px;
+  background: #333e7e;
+  padding: 14px;
+  border-radius: 10px;
+  transform: rotate(-8deg);
+  box-shadow: 10px 15px 0 #242b6c15;
+}
+.connect-board > span {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #d3dfea;
+}
+.connect-board > span.filled-orange {
+  background: #ec7851;
+}
+.connect-board > span.filled-yellow {
+  background: #e9d279;
+}
+.visual-dice {
+  background: #d9dac6;
+}
+.dice-scene {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.die {
+  font-size: 23px;
+  line-height: 0.6;
+  width: 78px;
+  height: 92px;
+  background: #f4f0df;
+  border: 1px solid #afa893;
+  border-radius: 10px;
+  transform: rotate(-13deg);
+  padding: 20px;
+  box-shadow: 7px 10px 0 #bfc0aa;
+}
+.die.second {
+  transform: rotate(15deg);
+  font-size: 16px;
+  line-height: 1;
+  padding: 15px;
+}
+.dice-scene > span {
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  font: 12px var(--mono);
+  letter-spacing: 4px;
+}
+.visual-data {
+  background: #dddce9;
+}
+.data-scene {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.data-scene > span {
+  font: 20px var(--mono);
+  padding: 17px 13px;
+  border: 1px solid #aaa6c0;
+  background: #f5f4ef70;
+  border-radius: 6px;
+}
+.data-scene small {
+  font-size: 6px;
+}
+.data-scene i {
+  font-style: normal;
+  color: #7c729e;
+}
+.visual-portfolio {
+  background: #efb095;
+}
+.portfolio-scene > span {
+  display: block;
+  font: 500 140px/0.9 var(--display);
+  letter-spacing: -20px;
+  padding-right: 15px;
+}
+.portfolio-scene > small {
+  font: 8px/1.7 var(--mono);
+  letter-spacing: 1.5px;
+}
+.visual-cards {
+  background: #c4d5ce;
+}
+.cards-scene {
+  display: flex;
+  transform: rotate(-8deg);
+  gap: 10px;
+}
+.cards-scene > span {
+  width: 75px;
+  height: 115px;
+  border: 2px solid #f6f2df;
+  border-radius: 9px;
+  padding: 10px;
+  background: #344b41;
+  color: #e8e1c7;
+  font: 25px/1.8 var(--display);
+  box-shadow: 4px 6px 0 #344b4120;
+}
+.cards-scene > span:nth-child(2) {
+  transform: translateY(-16px) rotate(8deg);
+}
+.cards-scene > span:nth-child(3) {
+  transform: rotate(16deg);
+}
+@keyframes float {
+  to {
+    transform: translate(8px, -10px);
+  }
+}
