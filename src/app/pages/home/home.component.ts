@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+
 import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-home',
-  imports: [NgFor, RouterModule],
+  imports: [RouterModule],
   standalone: true,
   templateUrl: './home.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {

@@ -7,12 +7,15 @@ import {
 import express from 'express';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { getAllowedServerHosts } from './server-hosts';
 
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
 
 const app = express();
-const angularApp = new AngularNodeAppEngine();
+const angularApp = new AngularNodeAppEngine({
+  allowedHosts: getAllowedServerHosts(process.env),
+});
 
 /**
  * Example Express Rest API endpoints can be defined here.
@@ -20,7 +23,7 @@ const angularApp = new AngularNodeAppEngine();
  *
  * Example:
  * ```ts
- * app.get('/api/**', (req, res) => {
+ * app.get('/api/*splat', (req, res) => {
  *   // Handle API request
  * });
  * ```
@@ -40,7 +43,7 @@ app.use(
 /**
  * Handle all other requests by rendering the Angular application.
  */
-app.use('/**', (req, res, next) => {
+app.use('/{*splat}', (req, res, next) => {
   angularApp
     .handle(req)
     .then((response) =>

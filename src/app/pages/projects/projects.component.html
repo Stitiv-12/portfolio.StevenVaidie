@@ -1,23 +1,32 @@
 <section class="projects-section">
   <h2>Mes Projets</h2>
-  <div class="project-item " *ngFor="let project of projects" [id]="project.fragment">
-    <h3>{{ project.title }}</h3>
-    <p><strong>Objectif:</strong> {{ project.objective }}</p>
-    <p *ngIf="project.realisation && project.realisation != null"><strong>Réalisation:</strong> {{ project.realisation }}</p>
-    <p class="description">{{ project.description }}</p>
-    <div class="functions" *ngIf="project.functions && project.functions.length > 0">
-      <h4>Fonctions :</h4>
-      <ul>
-        <li *ngFor="let func of project.functions">{{ func }}</li>
-      </ul>
+  @for (project of projects; track project) {
+    <div class="project-item " [id]="project.fragment">
+      <h3>{{ project.title }}</h3>
+      <p><strong>Objectif:</strong> {{ project.objective }}</p>
+      @if (project.realisation && project.realisation != null) {
+        <p><strong>Réalisation:</strong> {{ project.realisation }}</p>
+      }
+      <p class="description">{{ project.description }}</p>
+      @if (project.functions && project.functions.length > 0) {
+        <div class="functions">
+          <h4>Fonctions :</h4>
+          <ul>
+            @for (func of project.functions; track func) {
+              <li>{{ func }}</li>
+            }
+          </ul>
+        </div>
+      }
+      <div class="cta">
+        @if (project.githubUrl) {
+          <a [href]="project.githubUrl" target="_blank">
+            Accéder au code sur Github
+          </a>
+        } @else {
+          <span class="no-code-message">Code non disponible</span>
+        }
+      </div>
     </div>
-    <div class="cta">
-      <a *ngIf="project.githubUrl; else noCode" [href]="project.githubUrl" target="_blank">
-        Accéder au code sur Github
-      </a>
-      <ng-template #noCode>
-        <span class="no-code-message">Code non disponible</span>
-      </ng-template>
-    </div>
-  </div>  
+  }
 </section>

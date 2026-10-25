@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+
 
 @Component({
   selector: 'app-competence',
   standalone: true,
-  imports: [NgFor],
+  imports: [],
   templateUrl: './competence.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './competence.component.css'
 })
 export class CompetenceComponent {
