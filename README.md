@@ -21,7 +21,7 @@ npm ci
 npm start
 ```
 
-Ouvrir [http://localhost:4200](http://localhost:4200). Les modifications sont rechargées automatiquement.
+Ouvrir [http://localhost:4200](http://localhost:4200). Les modifications sont rechargées automatiquement. Pour un aperçu accessible depuis Windows via WSL, `npm start -- --host 0.0.0.0` conserve explicitement les seuls hôtes locaux autorisés (`localhost`, `127.0.0.1` et `[::1]`), sans wildcard.
 
 ## Validation
 
