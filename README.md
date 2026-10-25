@@ -4,10 +4,13 @@ Portfolio personnel développé avec Angular. Le projet Angular se trouve direct
 
 ## Environnement
 
-- Angular et Angular CLI 19.2
-- TypeScript 5.7
-- Node.js 22 LTS (environnement de validation : 22.20.0)
-- npm et le fichier `package-lock.json` pour une installation reproductible
+- Angular 22.2.3 ; Angular CLI, SSR et outils de compilation 22.2.4
+- TypeScript 6.0.3 (dernière branche compatible avec Angular 22 ; TypeScript 7 n’est pas encore pris en charge)
+- Node.js 26.12.1, fixé dans `.nvmrc`
+- npm 11.20.0 et le fichier `package-lock.json` pour une installation reproductible
+- Express 5.3, RxJS 7.8, Zone.js 0.16, Jasmine 7 et Karma 6.4
+
+Activer la version Node du projet avec `nvm use` si nvm est installé. Le Node 22.20 utilisé par l’ancien portfolio est trop ancien pour Angular 22.
 
 ## Installation et lancement local
 
@@ -30,6 +33,29 @@ npm test -- --watch=false --browsers=ChromeHeadless
 Les tests utilisent Jasmine et Karma et nécessitent Chrome ou Chromium. Si le navigateur n’est pas détecté, définir `CHROME_BIN` vers son exécutable.
 
 La compilation de production produit les fichiers dans `dist/angular-portfolio-web-site/`, avec les versions navigateur et serveur définies par la configuration Angular existante.
+
+## Mise à niveau technique
+
+Les migrations officielles Angular ont été appliquées successivement de 19 vers 20, puis 21 et 22. Elles adaptent le contexte de rendu serveur, les providers SSR et les templates vers les blocs `@if` et `@for`. Le constructeur maintenu `@angular/build` remplace le paquet Webpack déprécié, tout en conservant Jasmine/Karma.
+
+Les dépendances non utilisées `ngx-bootstrap`, `@angular/forms` et `@angular/platform-browser-dynamic` ont été retirées. Aucun composant de l’application n’utilisait leurs API. Le provider historique d’animations, sans animations applicatives associées, a également été retiré. Le fallback du serveur utilise un wildcard nommé compatible avec Express 5.
+
+Les tests conservent la stratégie Jasmine/Karma et vérifient notamment les liens de navigation et le rendu de la route projets. Les assets servis pendant les tests sont alignés sur ceux de la compilation.
+
+Un override ciblé fixe Vite à 8.3.5 : Angular 22.2.4 épingle encore 8.3.0, concerné par des avis de sécurité. Ce correctif reste sur la même version mineure ; retirer l’override lorsque le constructeur Angular intègre une version corrigée.
+
+La plage Node déclarée reste compatible avec les environnements d’hébergement existants : `^22.22.3 || ^24.15.0 || >=26.0.0`. npm 10 ou plus est accepté ; npm 11.20.0 est la version recommandée pour le développement.
+
+## Vérifier le serveur de production
+
+```bash
+npm run build
+npm run serve:ssr:AngularPortfolioWebSite
+```
+
+Le serveur écoute sur [http://localhost:4000](http://localhost:4000). La variable `PORT` permet de changer le port.
+
+Angular 22 vérifie les hôtes des requêtes SSR. Les adresses locales sont autorisées dans `angular.json`. Les hôtes exacts fournis par Vercel (`VERCEL_URL`, `VERCEL_BRANCH_URL` et `VERCEL_PROJECT_PRODUCTION_URL`) sont autorisés automatiquement. Pour un autre domaine, définir `NG_ALLOWED_HOSTS` avec une liste de noms d’hôtes séparés par des virgules, sans schéma ni port. Les URL, ports, chemins et wildcards sont rejetés ; aucun wildcard global ni confiance supplémentaire dans les en-têtes proxy n’est activé.
 
 ## Structure
 

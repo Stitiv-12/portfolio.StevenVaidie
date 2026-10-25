@@ -1,6 +1,6 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NgFor, ViewportScroller , NgIf } from '@angular/common';
+import { ViewportScroller } from '@angular/common';
 
 interface Project {
   title: string;
@@ -14,8 +14,9 @@ interface Project {
 
 @Component({
   selector: 'app-projects',
-  imports: [NgFor,NgIf],
+  imports: [],
   templateUrl: './projects.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
