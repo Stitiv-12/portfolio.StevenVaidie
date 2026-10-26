@@ -79,5 +79,11 @@ Le document téléchargeable est `src/assets/documents/cv.pdf`. Les aperçus des
 
 - Navigation responsive avec fermeture au clavier et lors d’un changement de page.
 - Projets filtrables et cas détaillés dépliables, avec conservation des anciens fragments d’URL.
-- Constellation interactive pour explorer interface, logique serveur et données.
+- Constellations interactives par catégorie du CV, avec notes et détails accessibles.
 - Prise en compte de la préférence de réduction des animations.
+
+### Compétences en orbite
+
+Les 38 compétences, leurs sept catégories et les notes de la page 2 du CV sont centralisées dans `src/app/data/skills.ts`. Ce sont les autoévaluations du document, sur 5, avec demi-notes ; elles ne constituent pas une certification de niveau. `null` signifie « Non noté dans le CV » (PHPUnit et SQL Server), jamais zéro. Les deux entrées SQL Server et les deux évaluations de React Native par catégorie restent distinctes.
+
+`skill-orbit-layout.ts` transforme une note en rayon relatif : `12 + (5 - note) × 6` pour cent de la largeur du diagramme. Une note plus élevée est donc plus proche du centre, de façon identique dans toutes les cartes ; les demi-notes sont entre deux cercles. Seuls les angles sont répartis pour disposer les repères. Les petits diagrammes utilisent des numéros associés aux noms et notes de la liste afin de préserver la lisibilité. Chaque instance fournit son propre `instanceId` pour ses identifiants accessibles.

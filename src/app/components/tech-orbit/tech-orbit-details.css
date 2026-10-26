@@ -1,0 +1,151 @@
+.orbit-legend {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font: 10px/1.65 var(--mono);
+  color: #56604c;
+  margin: 0 0 18px;
+}
+.orbit-legend > span {
+  font-size: 18px;
+  line-height: 1.2;
+}
+.orbit-skill-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+.orbit-skill-list button {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr) auto;
+  gap: 5px;
+  align-items: center;
+  background: #f5f4ef80;
+  color: var(--ink);
+  text-align: left;
+  border: 1px solid #c5cbbd;
+  border-radius: 3px;
+  padding: 8px 7px;
+  min-height: 37px;
+}
+.orbit-skill-list button.selected {
+  border-color: #9a4a34;
+  background: #f5e6dc;
+}
+.list-index {
+  font: 8px var(--mono);
+  color: #5f6956;
+}
+.skill-name {
+  font: 500 11px/1.35 var(--display);
+  overflow-wrap: anywhere;
+}
+.skill-score {
+  font: 8px var(--mono);
+  white-space: nowrap;
+  color: #505749;
+}
+.unrated-label {
+  grid-column: 2/-1;
+  font: 8px/1.4 var(--mono);
+  color: #62655b;
+}
+.orbit-info {
+  border-top: 1px solid #c1c8b6;
+  padding-top: 17px;
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: auto;
+  min-height: 70px;
+}
+.orbit-info strong {
+  font-size: 14px;
+  font-weight: 500;
+}
+.orbit-info p {
+  font: 11px/1.7 var(--mono);
+  color: #56604c;
+  margin: 6px 0 0;
+}
+.info-source {
+  font: 7px/1.8 var(--mono);
+  color: #606856;
+  white-space: nowrap;
+}
+.orbit-more {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 11px;
+  margin-top: 15px;
+  padding-top: 14px;
+  border-top: 1px solid #c1c8b6;
+  text-decoration: none;
+}
+.orbit-more > span {
+  font-size: 18px;
+}
+.compact .orbit-plot {
+  max-width: 310px;
+}
+.compact .orbit-skill-list {
+  max-height: 126px;
+  overflow-y: auto;
+  padding: 3px;
+  margin: -3px -3px 15px;
+  scrollbar-width: thin;
+}
+@media (max-width: 440px) {
+  .orbit-skill-list {
+    grid-template-columns: 1fr;
+  }
+  .compact .orbit-skill-list {
+    grid-template-columns: 1fr 1fr;
+  }
+  .compact .skill-name {
+    font-size: 10px;
+  }
+  .compact .skill-score {
+    font-size: 7px;
+  }
+  .compact .orbit-skill-list button {
+    padding: 7px 5px;
+    grid-template-columns: 13px minmax(0, 1fr) auto;
+    gap: 3px;
+  }
+}
+
+:host(.compact-orbit) {
+  height: auto;
+}
+.compact {
+  height: auto;
+}
+.compact .orbit-info {
+  margin-top: 0;
+}
+.compact .orbit-legend {
+  font-size: 9px;
+  margin-bottom: 14px;
+}
+.compact-skills {
+  margin-bottom: 14px;
+  border-top: 1px solid #c1c8b6;
+}
+.compact-skills summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  padding: 12px 0;
+  font: 10px var(--mono);
+}
+.compact-skills summary > span {
+  font-size: 15px;
+}
+.compact-skills[open] summary > span {
+  transform: rotate(45deg);
+}

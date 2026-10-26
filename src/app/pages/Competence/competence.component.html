@@ -12,44 +12,38 @@
       plus loin.
     </p>
   </header>
-  <section class="skills-intro section">
+  <section class="skills-introduction section">
     <div>
-      <p class="eyebrow">COMPRENDRE L’ENSEMBLE</p>
-      <h2>De ce que l’on voit <br />à ce qui le fait vivre.</h2>
+      <p class="eyebrow">UNE LECTURE DE MON CV TECHNIQUE</p>
+      <h2>Mes compétences, <br />en constellation.</h2>
+    </div>
+    <div>
       <p>
-        Mon intérêt pour les interfaces m’amène aussi à regarder derrière : la
-        logique, les API, les données et la façon dont elles circulent.
+        Ces sept catégories et leurs notes reprennent mon autoévaluation dans le
+        CV technique. Sur chaque diagramme, une note plus élevée rapproche la
+        compétence du centre SV.
       </p>
       <p>
-        Sélectionnez un élément pour explorer ces trois facettes d’une
-        application.
+        Les cercles vont de 5 à 1 sur une échelle de 5. Une demi-note se situe à
+        mi-distance. Les compétences sans note restent dans la liste, hors des
+        orbites notées.
       </p>
       <a class="text-link" routerLink="/projects"
-        >Les voir dans mes projets <span aria-hidden="true">↗</span></a
+        >Les retrouver dans mes projets <span aria-hidden="true">↗</span></a
       >
     </div>
-    <app-tech-orbit />
   </section>
-  <section class="skill-groups" aria-label="Domaines de compétences">
-    @for (group of groups; track group.number) {
-      <article class="skill-group">
-        <span class="skill-index">{{ group.number }}</span>
-        <div class="skill-group-heading">
-          <h2>{{ group.title }}</h2>
-          <p>{{ group.description }}</p>
-        </div>
-        <div class="skill-technologies">
-          @for (tech of group.technologies; track tech) {
-            <span>{{ tech }}</span>
-          }
-        </div>
-        <span
-          class="skill-symbol"
-          [class]="'skill-symbol tone-' + group.tone"
-          aria-hidden="true"
-          >✳</span
-        >
-      </article>
+  <section
+    class="skill-orbit-grid"
+    aria-label="Les sept catégories de compétences du CV"
+  >
+    @for (category of categories; track category.id) {
+      <div [id]="category.id">
+        <app-tech-orbit
+          [category]="category"
+          [instanceId]="'skills-' + category.id"
+        />
+      </div>
     }
   </section>
   <section class="soft-skills section">

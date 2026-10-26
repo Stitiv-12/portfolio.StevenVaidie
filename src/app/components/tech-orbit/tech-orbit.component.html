@@ -1,40 +1,136 @@
-<div class="orbit-card">
+<section
+  class="orbit-card"
+  [class.compact]="compact()"
+  [attr.aria-label]="currentCategory().name + ' : autoévaluations du CV'"
+>
   <div class="orbit-caption">
-    <span>DE L’IDÉE À L’INTERFACE</span
-    ><span aria-hidden="true">[ EXPLOREZ ]</span>
+    <span>LES COMPÉTENCES EN ORBITE</span
+    ><span aria-hidden="true">[ / 5 ]</span>
   </div>
-  <div class="orbit-stage">
-    <div class="orbit-ring ring-one" aria-hidden="true"></div>
-    <div class="orbit-ring ring-two" aria-hidden="true"></div>
-    <div class="orbit-ring ring-three" aria-hidden="true"></div>
-    <span class="orbit-cross cross-one" aria-hidden="true">+</span
-    ><span class="orbit-cross cross-two" aria-hidden="true">+</span>
-    <div class="orbit-core" aria-hidden="true">
-      <span>sv<span class="core-dot">.</span></span
-      ><small>TOUJOURS EN MOUVEMENT</small>
-    </div>
-    @for (node of nodes; track node.code; let i = $index) {
-      <button
-        type="button"
-        class="orbit-node"
-        [class]="'orbit-node node-' + i"
-        [class.selected]="activeNode() === i"
-        [attr.aria-pressed]="activeNode() === i"
-        aria-controls="orbit-description"
-        (click)="activeNode.set(i)"
+  @if (compact()) {
+    <div class="category-picker">
+      <label [for]="instanceId() + '-category'">Catégorie du CV</label
+      ><select
+        [id]="instanceId() + '-category'"
+        [value]="currentCategory().id"
+        (change)="selectCategory($event)"
       >
-        <span>{{ node.code }}</span
-        ><small>{{ node.label }}</small>
-      </button>
-    }
-    <span class="satellite" aria-hidden="true"></span>
-  </div>
-  <div class="orbit-info" id="orbit-description" aria-live="polite">
-    <span class="info-index">0{{ activeNode() + 1 }} / 03</span>
-    <div>
-      <strong>{{ nodes[activeNode()].tech }}</strong>
-      <p>{{ nodes[activeNode()].description }}</p>
+        @for (item of categories; track item.id) {
+          <option [value]="item.id">{{ item.name }}</option>
+        }
+      </select>
     </div>
-    <span class="info-arrow" aria-hidden="true">↗</span>
+  } @else {
+    <div class="category-heading">
+      <h3>{{ currentCategory().name }}</h3>
+      <span>{{ currentCategory().skills.length }} compétences</span>
+    </div>
+  }
+  <div class="orbit-plot" [class.sparse]="nodes().length <= 4">
+    <div class="orbit-stage" [attr.aria-describedby]="legendId()">
+      @for (ring of rings; track ring.score) {
+        <div
+          class="orbit-ring"
+          aria-hidden="true"
+          [style.width.%]="ring.radius * 2"
+          [style.height.%]="ring.radius * 2"
+        >
+          <span>{{ ring.score }}</span>
+        </div>
+      }
+      <div class="orbit-core" aria-hidden="true">
+        <span>sv<span class="core-dot">.</span></span>
+      </div>
+      @for (node of nodes(); track node.skill.id) {
+        <button
+          type="button"
+          class="orbit-node"
+          [class.selected]="selectedSkill().id === node.skill.id"
+          [style.left.%]="50 + node.x"
+          [style.top.%]="50 + node.y"
+          [attr.data-radius]="node.radius"
+          [attr.data-score]="node.skill.score"
+          [attr.aria-label]="
+            node.skill.name +
+            ', repère ' +
+            (node.index + 1) +
+            ', ' +
+            scoreLabel(node.skill.score)
+          "
+          [attr.aria-pressed]="selectedSkill().id === node.skill.id"
+          [attr.aria-controls]="detailsId()"
+          (click)="selectedSkillId.set(node.skill.id)"
+        >
+          <span class="node-index">{{ node.index + 1 }}</span
+          ><span class="node-name">{{ node.skill.name }}</span>
+        </button>
+      }
+    </div>
+    <p class="plot-guide">Repères numérotés = compétences de la liste</p>
   </div>
-</div>
+  <p class="orbit-legend" [id]="legendId()">
+    <span aria-hidden="true">◎</span>
+    @if (compact()) {
+      Notes du CV sur 5. Plus près du centre = note plus élevée.
+    } @else {
+      Plus la note est élevée, plus la compétence est proche du centre. Les
+      demi-notes se placent entre deux cercles.
+    }
+  </p>
+  @if (compact()) {
+    <details class="compact-skills">
+      <summary>
+        Voir les compétences et notes <span aria-hidden="true">+</span>
+      </summary>
+      <ng-container [ngTemplateOutlet]="skillList" />
+    </details>
+  } @else {
+    <ng-container [ngTemplateOutlet]="skillList" />
+  }
+  <ng-template #skillList>
+    <div
+      class="orbit-skill-list"
+      role="group"
+      [attr.aria-label]="'Choisir une compétence : ' + currentCategory().name"
+    >
+      @for (skill of currentCategory().skills; track skill.id; let i = $index) {
+        <button
+          type="button"
+          [class.selected]="selectedSkill().id === skill.id"
+          [attr.aria-pressed]="selectedSkill().id === skill.id"
+          [attr.aria-controls]="detailsId()"
+          (click)="selectedSkillId.set(skill.id)"
+        >
+          <span class="list-index">{{ i + 1 }}</span
+          ><span class="skill-name">{{ skill.name }}</span
+          ><span class="skill-score">{{
+            skill.score === null ? "—" : scoreLabel(skill.score)
+          }}</span>
+          @if (skill.score === null) {
+            <span class="unrated-label">Non noté dans le CV</span>
+          }
+        </button>
+      }
+    </div>
+  </ng-template>
+  <div class="orbit-info" [id]="detailsId()" aria-live="polite">
+    <div>
+      <strong>{{ selectedSkill().name }}</strong>
+      <p>
+        {{ scoreLabel(selectedSkill().score) }}
+        @if (selectedSkill().score === null) {
+          — hors des orbites notées.
+        }
+      </p>
+    </div>
+    <span class="info-source">AUTOÉVALUATION<br />CV · PAGE 2</span>
+  </div>
+  @if (compact()) {
+    <a
+      class="orbit-more"
+      routerLink="/competence"
+      [fragment]="currentCategory().id"
+      >Explorer cette catégorie <span aria-hidden="true">↗</span></a
+    >
+  }
+</section>

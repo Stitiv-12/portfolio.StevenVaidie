@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { SKILL_GROUPS } from '../../data/portfolio';
+import { SKILL_CATEGORIES } from '../../data/skills';
 import { TechOrbitComponent } from '../../components/tech-orbit/tech-orbit.component';
 
 @Component({
@@ -11,7 +11,7 @@ import { TechOrbitComponent } from '../../components/tech-orbit/tech-orbit.compo
   styleUrl: './competence.component.css',
 })
 export class CompetenceComponent {
-  readonly groups = SKILL_GROUPS;
+  readonly categories = SKILL_CATEGORIES;
   readonly softSkills = [
     'Esprit d’équipe',
     'Autonomie',
