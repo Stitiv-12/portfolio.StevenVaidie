@@ -1,78 +1,44 @@
-.skills-intro {
+.skills-introduction {
   display: grid;
-  grid-template-columns: 1fr 0.85fr;
-  gap: 13%;
+  grid-template-columns: 1fr 1fr;
+  gap: 8%;
   align-items: center;
 }
-.skills-intro h2,
-.soft-skills h2 {
+.skills-introduction h2 {
   font-size: 44px;
   line-height: 1.12;
   letter-spacing: -2px;
-  margin: 25px 0;
+  margin: 25px 0 0;
 }
-.skills-intro p:not(.eyebrow) {
+.skills-introduction p:not(.eyebrow) {
   font-size: 13px;
   line-height: 1.9;
   color: var(--muted);
-  max-width: 400px;
+  max-width: 500px;
 }
-.skills-intro .text-link {
+.skills-introduction .text-link {
   display: inline-block;
-  margin-top: 15px;
+  margin-top: 10px;
 }
-.skill-group {
+.skill-orbit-grid {
   display: grid;
-  grid-template-columns: 45px 1.05fr 1fr 50px;
-  gap: 30px;
-  border-top: 1px solid var(--line);
-  padding: 40px 0;
-  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  padding-bottom: 85px;
 }
-.skill-index {
-  font: 10px var(--mono);
-  color: var(--muted);
-  margin-top: 6px;
-}
-.skill-group h2 {
-  font-size: 29px;
-  line-height: 1.15;
-  letter-spacing: -1px;
-  margin-bottom: 15px;
-}
-.skill-group p {
-  font-size: 12px;
-  line-height: 1.8;
-  color: var(--muted);
-  max-width: 300px;
-  margin-bottom: 0;
-}
-.skill-technologies {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.skill-technologies > span {
-  font: 10px var(--mono);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 9px 12px;
-}
-.skill-symbol {
-  font-size: 36px;
-  line-height: 1;
-}
-.tone-orange {
-  color: var(--orange);
-}
-.tone-purple {
-  color: #8b81a7;
-}
-.tone-green {
-  color: #899970;
-}
-.tone-blue {
-  color: #738fab;
+@media (max-width: 760px) {
+  .skills-introduction {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .skills-introduction h2 {
+    font-size: 37px;
+  }
+  .skill-orbit-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding-bottom: 60px;
+  }
 }
 .soft-skills {
   display: grid;
@@ -105,49 +71,12 @@
 .soft-skill-list > span > span {
   color: var(--muted);
 }
-@media (max-width: 1000px) {
-  .skill-group {
-    grid-template-columns: 25px 1fr 1fr;
-    gap: 20px;
-  }
-  .skill-symbol {
-    display: none;
-  }
-  .skills-intro {
-    gap: 7%;
-    grid-template-columns: 1fr 1fr;
-  }
-}
 @media (max-width: 760px) {
-  .skills-intro {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 40px;
-  }
-  .skills-intro h2,
-  .soft-skills h2 {
-    font-size: 37px;
-  }
-  .skill-group {
-    grid-template-columns: 25px 1fr;
-    padding: 28px 0;
-    gap: 15px;
-  }
-  .skill-group h2 {
-    font-size: 26px;
-  }
-  .skill-technologies {
-    grid-column: 2;
-  }
-  .skill-group p {
-    max-width: none;
-  }
-  .skill-technologies > span {
-    font-size: 9px;
-  }
   .soft-skills {
     display: block;
+  }
+  .soft-skills h2 {
+    font-size: 37px;
   }
   .soft-skills > div:last-child {
     margin-top: 30px;
